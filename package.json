@@ -1,0 +1,13 @@
+{
+  "name": "mallevo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:landing": "pnpm --filter landing dev",
+    "build:landing": "pnpm --filter landing build",
+    "lint:landing": "pnpm --filter landing lint"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}
