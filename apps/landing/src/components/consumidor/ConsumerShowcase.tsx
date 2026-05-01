@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import type { MotionValue } from 'framer-motion'
 import Image from 'next/image'
 
 // ─── Arpeggio — seção de mídia pós-hero ───────────────────────────────────────
@@ -75,9 +76,9 @@ function ShowcaseTile({
   opacity,
 }: {
   tile: (typeof tiles)[number]
-  clipPath: ReturnType<typeof useTransform>
-  x: ReturnType<typeof useTransform>
-  opacity: ReturnType<typeof useTransform>
+  clipPath: MotionValue<string>
+  x: MotionValue<string>
+  opacity: MotionValue<number>
 }) {
   return (
     <motion.div
