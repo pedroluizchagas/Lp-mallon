@@ -12,7 +12,8 @@
     "lint:landing": "pnpm --filter landing lint"
   },
   "devDependencies": {
-    "typescript": "^5"
+    "typescript": "^5",
+    "next": "15.1.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": ["sharp", "unrs-resolver"]
