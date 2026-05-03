@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Plus, Minus } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 
 const faqs = [
@@ -63,7 +63,7 @@ function FaqItem({
 }) {
   return (
     <motion.div
-      className="border-b border-gray-100 last:border-0"
+      className="border-b border-surface-alt last:border-0"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -75,8 +75,8 @@ function FaqItem({
         aria-expanded={isOpen}
       >
         <span
-          className={`font-sora font-semibold text-base transition-colors ${
-            isOpen ? 'text-verde-profundo' : 'text-texto-escuro group-hover:text-verde-profundo'
+          className={`font-jakarta font-semibold text-base transition-colors ${
+            isOpen ? 'text-dark' : 'text-ink group-hover:text-dark'
           }`}
         >
           {question}
@@ -84,8 +84,8 @@ function FaqItem({
         <motion.div
           className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${
             isOpen
-              ? 'bg-verde-profundo text-white'
-              : 'bg-gray-100 text-texto-claro group-hover:bg-verde-profundo/10 group-hover:text-verde-profundo'
+              ? 'bg-lime text-lime-ink'
+              : 'bg-surface-alt text-ink-3 group-hover:bg-lime/20 group-hover:text-dark'
           }`}
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2 }}
@@ -103,7 +103,7 @@ function FaqItem({
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className="text-texto-medio text-base leading-relaxed pb-5 pr-12">
+            <p className="text-ink-2 text-base leading-relaxed pb-5 pr-12">
               {answer}
             </p>
           </motion.div>
@@ -123,29 +123,29 @@ export default function Faq() {
           {/* Left: Header */}
           <AnimatedSection className="lg:sticky lg:top-28 self-start">
             <div className="flex items-center gap-4 mb-4">
-              <span className="text-verde-medio font-sora font-bold text-sm tracking-widest uppercase">
+              <span className="text-lime font-jakarta font-bold text-sm tracking-widest uppercase">
                 08
               </span>
-              <div className="flex-1 h-px bg-gray-100" />
+              <div className="flex-1 h-px bg-surface-alt" />
             </div>
-            <h2 className="font-sora text-4xl lg:text-5xl font-bold text-texto-escuro mb-6">
+            <h2 className="font-jakarta text-4xl lg:text-5xl font-bold text-ink mb-6">
               Tem alguma{' '}
-              <span className="text-verde-profundo">dúvida?</span>
+              <span className="text-dark">dúvida?</span>
             </h2>
-            <p className="text-texto-medio text-base leading-relaxed mb-8">
+            <p className="text-ink-2 text-base leading-relaxed mb-8">
               Reunimos as perguntas mais frequentes de lojistas interessados na
               Mallevo. Não encontrou sua resposta?
             </p>
             <a
               href="mailto:contato@mallevo.com.br"
-              className="inline-flex items-center gap-2 text-verde-profundo font-semibold hover:text-verde-medio transition-colors"
+              className="inline-flex items-center gap-2 text-dark font-semibold hover:text-lime transition-colors"
             >
               Fale com a gente →
             </a>
 
             {/* Quick stats */}
-            <div className="mt-10 p-6 bg-creme rounded-2xl border border-gray-100">
-              <p className="text-texto-claro text-xs uppercase tracking-wider font-semibold mb-4">
+            <div className="mt-10 p-6 bg-surface rounded-2xl border border-surface-alt">
+              <p className="text-ink-3 text-xs uppercase tracking-wider font-semibold mb-4">
                 Em resumo
               </p>
               {[
@@ -154,10 +154,7 @@ export default function Faq() {
                 '✅ Repasse em D+7',
                 '✅ Cancele quando quiser',
               ].map((item) => (
-                <p
-                  key={item}
-                  className="text-texto-medio text-sm font-medium py-1.5"
-                >
+                <p key={item} className="text-ink-2 text-sm font-medium py-1.5">
                   {item}
                 </p>
               ))}
@@ -166,7 +163,7 @@ export default function Faq() {
 
           {/* Right: FAQ items */}
           <AnimatedSection direction="right">
-            <div className="bg-creme rounded-3xl p-6 lg:p-8">
+            <div className="bg-surface rounded-3xl p-6 lg:p-8">
               {faqs.map((faq, i) => (
                 <FaqItem
                   key={i}

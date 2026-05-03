@@ -48,7 +48,7 @@ export default function ConsumerDepoimentos() {
         {/* Header */}
         <div className="mb-20">
           <AnimatedSection className="flex items-center gap-4 mb-8" direction="none">
-            <span className="font-sora font-bold text-sm tracking-[0.2em] text-[#4CAF82]/40">04</span>
+            <span className="font-jakarta font-bold text-sm tracking-[0.2em] text-[#4CAF82]/40">04</span>
             <motion.div
               className="flex-1 h-px bg-linear-to-r from-white/8 to-transparent"
               initial={{ scaleX: 0, originX: 0 }}
@@ -74,7 +74,7 @@ export default function ConsumerDepoimentos() {
             {/* Rating badge */}
             <AnimatedSection direction="none" delay={0.25}>
               <div className="flex items-center gap-4 bg-[#111714] border border-white/[0.07] rounded-2xl px-6 py-4 self-start lg:self-auto">
-                <span className="font-sora font-bold text-4xl text-[#EDF7F2]">4.8</span>
+                <span className="font-jakarta font-bold text-4xl text-[#EDF7F2]">4.8</span>
                 <div>
                   <Stars count={5} />
                   <p className="text-[#EDF7F2]/40 text-xs mt-1">baseado em avaliações</p>
@@ -109,7 +109,7 @@ export default function ConsumerDepoimentos() {
                     </div>
 
                     {/* Quote mark */}
-                    <div className="text-[#4CAF82]/15 font-sora font-bold text-6xl leading-none mb-2 select-none">"</div>
+                    <div className="text-[#4CAF82]/15 font-jakarta font-bold text-6xl leading-none mb-2 select-none">"</div>
 
                     {/* Quote */}
                     <p className="text-[#EDF7F2]/65 text-sm leading-relaxed flex-1 mb-6">

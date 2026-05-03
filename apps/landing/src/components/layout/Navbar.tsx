@@ -50,7 +50,7 @@ export default function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-verde-profundo/95 backdrop-blur-md shadow-lg shadow-black/10'
+            ? 'bg-dark/96 backdrop-blur-md shadow-lg shadow-black/20'
             : 'bg-transparent'
         )}
         initial={{ y: -80 }}
@@ -61,9 +61,9 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <span className="font-sora text-2xl font-bold">
-                <span className={scrolled ? 'text-white' : 'text-verde-profundo'}>Mall</span>
-                <span className="text-ambar">evo</span>
+              <span className="font-jakarta text-2xl font-bold tracking-tight">
+                <span className={scrolled ? 'text-white' : 'text-ink'}>Mall</span>
+                <span className="text-lime">evo</span>
               </span>
             </Link>
 
@@ -86,7 +86,7 @@ export default function Navbar() {
                 href={CTA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-ambar text-[#1A1A1A] font-semibold px-5 py-2.5 rounded-xl text-sm hover:bg-[#e8961a] transition-colors"
+                className="inline-flex items-center gap-2 bg-lime text-lime-ink font-bold px-5 py-2.5 rounded-xl text-sm hover:bg-lime-dark transition-colors"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -97,7 +97,10 @@ export default function Navbar() {
 
             {/* Mobile hamburger */}
             <button
-              className="lg:hidden text-white p-2 rounded-lg"
+              className={cn(
+                'lg:hidden p-2 rounded-lg transition-colors',
+                scrolled ? 'text-white' : 'text-ink'
+              )}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Abrir menu"
             >
@@ -119,16 +122,16 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
-              className="fixed top-0 right-0 h-full w-72 bg-verde-profundo z-50 lg:hidden flex flex-col"
+              className="fixed top-0 right-0 h-full w-72 bg-dark z-50 lg:hidden flex flex-col"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             >
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-                <span className="font-sora text-xl font-bold">
+                <span className="font-jakarta text-xl font-bold tracking-tight">
                   <span className="text-white">Mall</span>
-                  <span className="text-ambar">evo</span>
+                  <span className="text-lime">evo</span>
                 </span>
                 <button
                   onClick={() => setMobileOpen(false)}
@@ -159,7 +162,7 @@ export default function Navbar() {
                   href={CTA_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-ambar text-[#1A1A1A] font-semibold px-5 py-3.5 rounded-xl w-full hover:bg-[#e8961a] transition-colors"
+                  className="flex items-center justify-center gap-2 bg-lime text-lime-ink font-bold px-5 py-3.5 rounded-xl w-full hover:bg-lime-dark transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   Cadastrar minha loja

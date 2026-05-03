@@ -12,7 +12,7 @@ const testimonials = [
     role: 'Pizzaria da Vila',
     city: 'Divinópolis',
     emoji: '🍕',
-    color: 'from-verde-profundo to-verde-medio',
+    accent: 'bg-dark',
   },
   {
     stars: 5,
@@ -22,7 +22,7 @@ const testimonials = [
     role: 'Marmitas da Fê',
     city: 'Divinópolis',
     emoji: '🍱',
-    color: 'from-ambar/80 to-ambar',
+    accent: 'bg-lime',
   },
   {
     stars: 5,
@@ -32,7 +32,7 @@ const testimonials = [
     role: 'Entregador autônomo',
     city: 'Divinópolis',
     emoji: '🛵',
-    color: 'from-verde-medio to-[#3d9e71]',
+    accent: 'bg-accent',
   },
 ]
 
@@ -43,17 +43,17 @@ export default function Depoimentos() {
         {/* Section header */}
         <AnimatedSection className="mb-16 text-center">
           <div className="flex items-center gap-4 mb-8">
-            <div className="flex-1 h-px bg-gray-100" />
-            <span className="text-verde-medio font-sora font-bold text-sm tracking-widest uppercase px-4">
+            <div className="flex-1 h-px bg-surface-alt" />
+            <span className="text-lime font-jakarta font-bold text-sm tracking-widest uppercase px-4">
               07
             </span>
-            <div className="flex-1 h-px bg-gray-100" />
+            <div className="flex-1 h-px bg-surface-alt" />
           </div>
-          <h2 className="font-sora text-4xl lg:text-5xl font-bold text-texto-escuro">
+          <h2 className="font-jakarta text-4xl lg:text-5xl font-bold text-ink">
             Quem já usa,{' '}
-            <span className="text-verde-profundo">aprova</span>
+            <span className="text-dark">aprova</span>
           </h2>
-          <p className="text-texto-claro text-lg mt-4">
+          <p className="text-ink-3 text-lg mt-4">
             Histórias reais de lojistas e entregadores de Divinópolis.
           </p>
         </AnimatedSection>
@@ -64,40 +64,38 @@ export default function Depoimentos() {
             {testimonials.map((t, i) => (
               <StaggerItem key={i}>
                 <motion.div
-                  className="rounded-3xl overflow-hidden shadow-md border border-gray-100 flex flex-col h-full"
+                  className="rounded-3xl overflow-hidden shadow-sm border border-surface-alt flex flex-col h-full"
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.2 }}
                 >
                   {/* Colored top accent */}
-                  <div className={`h-1.5 bg-gradient-to-r ${t.color}`} />
+                  <div className={`h-1.5 ${t.accent}`} />
 
-                  <div className="p-8 flex flex-col flex-1 bg-creme">
+                  <div className="p-8 flex flex-col flex-1 bg-surface">
                     {/* Stars */}
                     <div className="flex gap-1 mb-4">
                       {Array.from({ length: t.stars }).map((_, s) => (
-                        <span key={s} className="text-ambar text-lg">
-                          ⭐
-                        </span>
+                        <span key={s} className="text-lime text-lg">★</span>
                       ))}
                     </div>
 
                     {/* Quote */}
-                    <blockquote className="text-texto-medio text-base leading-relaxed flex-1 mb-6">
+                    <blockquote className="text-ink-2 text-base leading-relaxed flex-1 mb-6">
                       &ldquo;{t.quote}&rdquo;
                     </blockquote>
 
                     {/* Author */}
                     <div className="flex items-center gap-3">
                       <div
-                        className={`w-11 h-11 rounded-full bg-gradient-to-br ${t.color} flex items-center justify-center text-xl shrink-0`}
+                        className={`w-11 h-11 rounded-full ${t.accent} flex items-center justify-center text-xl shrink-0`}
                       >
                         {t.emoji}
                       </div>
                       <div>
-                        <p className="font-sora font-bold text-texto-escuro text-sm">
+                        <p className="font-jakarta font-bold text-ink text-sm">
                           {t.name}
                         </p>
-                        <p className="text-texto-claro text-xs">
+                        <p className="text-ink-3 text-xs">
                           {t.role} · {t.city}
                         </p>
                       </div>
@@ -111,27 +109,26 @@ export default function Depoimentos() {
 
         {/* Disclaimer */}
         <AnimatedSection delay={0.2} className="mt-8 text-center">
-          <p className="text-texto-claro text-xs">
+          <p className="text-ink-3 text-xs">
             * Depoimentos ilustrativos baseados em casos de uso reais.
           </p>
         </AnimatedSection>
 
         {/* Social proof numbers */}
         <AnimatedSection stagger className="mt-16">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-8 bg-creme rounded-3xl border border-gray-100">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-8 bg-surface rounded-3xl border border-surface-alt">
             {[
-              { value: '14', label: 'dias grátis', suffix: '' },
-              { value: 'R$1', label: 'por pedido', suffix: '' },
-              { value: '7', label: 'dias para receber', suffix: 'D+' },
-              { value: '100%', label: 'seus dados são seus', suffix: '' },
+              { value: '14',    label: 'dias grátis',        suffix: '' },
+              { value: 'R$1',   label: 'por pedido',         suffix: '' },
+              { value: '7',     label: 'dias para receber',  suffix: 'D+' },
+              { value: '100%',  label: 'seus dados são seus', suffix: '' },
             ].map((stat) => (
               <StaggerItem key={stat.label}>
                 <div className="text-center">
-                  <p className="font-sora font-bold text-3xl lg:text-4xl text-verde-profundo">
-                    {stat.suffix}
-                    {stat.value}
+                  <p className="font-jakarta font-bold text-3xl lg:text-4xl text-dark">
+                    {stat.suffix}{stat.value}
                   </p>
-                  <p className="text-texto-claro text-sm mt-1">{stat.label}</p>
+                  <p className="text-ink-3 text-sm mt-1">{stat.label}</p>
                 </div>
               </StaggerItem>
             ))}

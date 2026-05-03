@@ -63,7 +63,7 @@ export default function ConsumerCta() {
           {/* Headline — mask reveal */}
           <div className="overflow-hidden mb-4">
             <motion.h2
-              className="font-sora font-bold text-5xl sm:text-6xl lg:text-8xl text-[#EDF7F2] leading-[0.95] tracking-tight"
+              className="font-jakarta font-bold text-5xl sm:text-6xl lg:text-8xl text-[#EDF7F2] leading-[0.95] tracking-tight"
               initial={{ y: '110%' }}
               whileInView={{ y: '0%' }}
               viewport={{ once: true }}
@@ -74,7 +74,7 @@ export default function ConsumerCta() {
           </div>
           <div className="overflow-hidden mb-12">
             <motion.h2
-              className="font-sora font-bold text-5xl sm:text-6xl lg:text-8xl text-[#4CAF82] leading-[0.95] tracking-tight"
+              className="font-jakarta font-bold text-5xl sm:text-6xl lg:text-8xl text-[#4CAF82] leading-[0.95] tracking-tight"
               initial={{ y: '110%' }}
               whileInView={{ y: '0%' }}
               viewport={{ once: true }}

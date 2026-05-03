@@ -75,25 +75,25 @@ export default function Planos() {
         {/* Section header */}
         <AnimatedSection className="mb-6">
           <div className="flex items-center gap-4 mb-4">
-            <span className="text-verde-medio font-sora font-bold text-sm tracking-widest uppercase">
+            <span className="text-lime font-jakarta font-bold text-sm tracking-widest uppercase">
               04
             </span>
-            <div className="flex-1 h-px bg-gray-100" />
+            <div className="flex-1 h-px bg-surface-alt" />
           </div>
-          <h2 className="font-sora text-4xl lg:text-5xl font-bold text-texto-escuro">
+          <h2 className="font-jakarta text-4xl lg:text-5xl font-bold text-ink">
             Planos que cabem no{' '}
-            <span className="text-verde-profundo">seu bolso</span>
+            <span className="text-dark">seu bolso</span>
           </h2>
-          <p className="text-texto-medio text-lg mt-4">
+          <p className="text-ink-2 text-lg mt-4">
             Sem surpresas. Cancele quando quiser.
           </p>
         </AnimatedSection>
 
         {/* Trial banner */}
         <AnimatedSection delay={0.1} className="mb-10">
-          <div className="bg-ambar/10 border border-ambar/30 rounded-2xl py-3.5 px-6 inline-flex items-center gap-3">
+          <div className="bg-lime/10 border border-lime/30 rounded-2xl py-3.5 px-6 inline-flex items-center gap-3">
             <span className="text-xl">✨</span>
-            <p className="text-[#a06d00] font-semibold">
+            <p className="text-ink font-semibold">
               Todos os planos incluem{' '}
               <strong>14 dias grátis para testar</strong>
             </p>
@@ -108,20 +108,20 @@ export default function Planos() {
                 <motion.div
                   className={`relative rounded-3xl border-2 h-full flex flex-col ${
                     plan.highlight
-                      ? 'border-verde-profundo bg-verde-profundo text-white shadow-2xl shadow-verde-profundo/25'
-                      : 'border-gray-100 bg-white shadow-md'
+                      ? 'border-dark bg-dark text-white shadow-2xl shadow-dark/25'
+                      : 'border-surface-alt bg-white shadow-sm'
                   }`}
                   whileHover={
                     plan.highlight
                       ? { y: -6 }
-                      : { y: -4, boxShadow: '0 16px 40px rgba(26,77,58,0.1)' }
+                      : { y: -4, boxShadow: '0 16px 40px rgba(15,15,13,0.08)' }
                   }
                   transition={{ duration: 0.2 }}
                 >
                   {/* Popular badge */}
                   {plan.badge && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <Badge variant="amber" className="shadow-lg">
+                      <Badge variant="lime" className="shadow-lg shadow-lime/20">
                         ⭐ {plan.badge}
                       </Badge>
                     </div>
@@ -131,15 +131,15 @@ export default function Planos() {
                     {/* Plan name */}
                     <div className="mb-6">
                       <h3
-                        className={`font-sora font-bold text-xl mb-1 ${
-                          plan.highlight ? 'text-white' : 'text-texto-escuro'
+                        className={`font-jakarta font-bold text-xl mb-1 ${
+                          plan.highlight ? 'text-white' : 'text-ink'
                         }`}
                       >
                         {plan.name}
                       </h3>
                       <p
                         className={`text-sm ${
-                          plan.highlight ? 'text-white/60' : 'text-texto-claro'
+                          plan.highlight ? 'text-white/50' : 'text-ink-3'
                         }`}
                       >
                         {plan.tagline}
@@ -151,21 +151,21 @@ export default function Planos() {
                       <div className="flex items-end gap-1">
                         <span
                           className={`text-sm font-semibold ${
-                            plan.highlight ? 'text-white/70' : 'text-texto-claro'
+                            plan.highlight ? 'text-white/60' : 'text-ink-3'
                           }`}
                         >
                           R$
                         </span>
                         <span
-                          className={`font-sora font-bold text-5xl leading-none ${
-                            plan.highlight ? 'text-white' : 'text-texto-escuro'
+                          className={`font-jakarta font-bold text-5xl leading-none ${
+                            plan.highlight ? 'text-lime' : 'text-ink'
                           }`}
                         >
                           {plan.price}
                         </span>
                         <span
                           className={`text-sm mb-1 ${
-                            plan.highlight ? 'text-white/60' : 'text-texto-claro'
+                            plan.highlight ? 'text-white/50' : 'text-ink-3'
                           }`}
                         >
                           /mês
@@ -176,26 +176,19 @@ export default function Planos() {
                     {/* Features list */}
                     <ul className="flex flex-col gap-3 flex-1 mb-8">
                       {plan.features.map((feature) => (
-                        <li
-                          key={feature.text}
-                          className="flex items-center gap-3"
-                        >
+                        <li key={feature.text} className="flex items-center gap-3">
                           {feature.included ? (
                             <Check
                               size={16}
-                              className={
-                                plan.highlight
-                                  ? 'text-verde-medio shrink-0'
-                                  : 'text-verde-medio shrink-0'
-                              }
+                              className="text-accent shrink-0"
                             />
                           ) : (
                             <X
                               size={16}
                               className={
                                 plan.highlight
-                                  ? 'text-white/30 shrink-0'
-                                  : 'text-gray-300 shrink-0'
+                                  ? 'text-white/25 shrink-0'
+                                  : 'text-ink-3/40 shrink-0'
                               }
                             />
                           )}
@@ -203,11 +196,11 @@ export default function Planos() {
                             className={`text-sm ${
                               !feature.included
                                 ? plan.highlight
-                                  ? 'text-white/30'
-                                  : 'text-gray-300'
+                                  ? 'text-white/25'
+                                  : 'text-ink-3/40'
                                 : plan.highlight
-                                ? 'text-white/90'
-                                : 'text-texto-medio'
+                                ? 'text-white/85'
+                                : 'text-ink-2'
                             }`}
                           >
                             {feature.text}
@@ -221,10 +214,10 @@ export default function Planos() {
                       href={plan.ctaHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm transition-colors ${
+                      className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm transition-colors ${
                         plan.highlight
-                          ? 'bg-ambar text-[#1A1A1A] hover:bg-[#e8961a]'
-                          : 'bg-verde-profundo text-white hover:bg-[#153d2e]'
+                          ? 'bg-lime text-lime-ink hover:bg-lime-dark'
+                          : 'bg-dark text-white hover:bg-dark-2'
                       }`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -241,16 +234,16 @@ export default function Planos() {
 
         {/* Footer note */}
         <AnimatedSection delay={0.2} className="mt-10 text-center">
-          <p className="text-texto-claro text-sm">
+          <p className="text-ink-3 text-sm">
             Não tem certeza qual plano escolher?{' '}
             <a
               href="mailto:contato@mallevo.com.br"
-              className="text-verde-profundo font-semibold hover:text-verde-medio transition-colors"
+              className="text-dark font-semibold hover:text-ink-2 transition-colors"
             >
               Fale com a gente →
             </a>
           </p>
-          <p className="text-texto-claro text-xs mt-2">
+          <p className="text-ink-3 text-xs mt-2">
             Todos os planos incluem comissão de R$1,00 por pedido entregue com
             pagamento online.
           </p>

@@ -35,7 +35,7 @@ function MarqueeItem({ icon, label, highlight }: { icon: string; label: string; 
     <div className="flex items-center gap-3 shrink-0">
       <span className="text-2xl">{icon}</span>
       <span
-        className={`font-sora font-semibold text-xl whitespace-nowrap tracking-tight ${
+        className={`font-jakarta font-semibold text-xl whitespace-nowrap tracking-tight ${
           highlight ? 'text-[#4CAF82]' : 'text-[#EDF7F2]/30'
         }`}
       >

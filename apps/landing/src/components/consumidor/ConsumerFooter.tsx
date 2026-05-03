@@ -31,9 +31,9 @@ export default function ConsumerFooter() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/consumidor" className="inline-flex items-center gap-2.5 mb-5">
               <div className="w-8 h-8 rounded-xl bg-[#4CAF82] flex items-center justify-center">
-                <span className="font-sora font-bold text-white text-sm">M</span>
+                <span className="font-jakarta font-bold text-white text-sm">M</span>
               </div>
-              <span className="font-sora font-bold text-[#EDF7F2] text-lg">
+              <span className="font-jakarta font-bold text-[#EDF7F2] text-lg">
                 Mall<span className="text-[#4CAF82]">evo</span>
               </span>
             </Link>
@@ -63,7 +63,7 @@ export default function ConsumerFooter() {
           {/* Links */}
           {Object.entries(footerLinks).map(([group, items]) => (
             <div key={group}>
-              <h3 className="font-sora font-semibold text-[10px] uppercase tracking-[0.18em] text-[#EDF7F2]/25 mb-5">
+              <h3 className="font-jakarta font-semibold text-[10px] uppercase tracking-[0.18em] text-[#EDF7F2]/25 mb-5">
                 {group}
               </h3>
               <ul className="flex flex-col gap-3">
@@ -83,7 +83,7 @@ export default function ConsumerFooter() {
 
           {/* Contato */}
           <div>
-            <h3 className="font-sora font-semibold text-[10px] uppercase tracking-[0.18em] text-[#EDF7F2]/25 mb-5">
+            <h3 className="font-jakarta font-semibold text-[10px] uppercase tracking-[0.18em] text-[#EDF7F2]/25 mb-5">
               Contato
             </h3>
             <ul className="flex flex-col gap-4">
@@ -118,7 +118,7 @@ export default function ConsumerFooter() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2
-            className="font-sora font-bold select-none leading-none tracking-tight text-[#EDF7F2]/4 whitespace-nowrap"
+            className="font-jakarta font-bold select-none leading-none tracking-tight text-[#EDF7F2]/4 whitespace-nowrap"
             style={{ fontSize: 'clamp(5rem, 18vw, 16rem)' }}
           >
             Mallevo

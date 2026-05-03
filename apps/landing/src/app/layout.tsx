@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Sora, Inter } from 'next/font/google'
+import { Plus_Jakarta_Sans, Inter } from 'next/font/google'
 import './globals.css'
 
-const sora = Sora({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-sora',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-jakarta',
   display: 'swap',
 })
 
@@ -52,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={`${sora.variable} ${inter.variable}`}>
+    <html lang="pt-BR" className={`${jakarta.variable} ${inter.variable}`}>
       <body className="font-inter antialiased">{children}</body>
     </html>
   )

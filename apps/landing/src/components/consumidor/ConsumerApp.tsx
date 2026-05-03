@@ -83,7 +83,7 @@ function Counter({
   return (
     <p
       ref={ref}
-      className="font-sora font-bold text-4xl mb-2 leading-none"
+      className="font-jakarta font-bold text-4xl mb-2 leading-none"
       style={{ color: accent }}
     >
       {prefix}{decimal ? count.toFixed(1) : count}{suffix}
@@ -99,7 +99,7 @@ export default function ConsumerApp() {
         {/* Section header */}
         <div className="mb-20">
           <AnimatedSection className="flex items-center gap-4 mb-8" direction="none">
-            <span className="font-sora font-bold text-sm tracking-[0.2em] text-[#4CAF82]/40">03</span>
+            <span className="font-jakarta font-bold text-sm tracking-[0.2em] text-[#4CAF82]/40">03</span>
             <motion.div
               className="flex-1 h-px bg-linear-to-r from-white/8 to-transparent"
               initial={{ scaleX: 0, originX: 0 }}
@@ -147,7 +147,7 @@ export default function ConsumerApp() {
                         <Icon size={18} className="text-[#4CAF82]" />
                       </div>
                       <div>
-                        <p className="font-sora font-semibold text-[#EDF7F2] text-sm leading-tight mb-1">{title}</p>
+                        <p className="font-jakarta font-semibold text-[#EDF7F2] text-sm leading-tight mb-1">{title}</p>
                         <p className="text-[#EDF7F2]/40 text-xs leading-relaxed">{desc}</p>
                       </div>
                     </motion.div>
@@ -192,9 +192,9 @@ export default function ConsumerApp() {
               <div className="relative">
                 <div className="flex items-center gap-2.5 mb-4">
                   <div className="w-9 h-9 rounded-xl bg-[#4CAF82] flex items-center justify-center shadow-lg shadow-[#4CAF82]/25">
-                    <span className="font-sora font-bold text-white text-sm">M</span>
+                    <span className="font-jakarta font-bold text-white text-sm">M</span>
                   </div>
-                  <span className="font-sora font-bold text-[#EDF7F2] text-lg">Mallevo</span>
+                  <span className="font-jakarta font-bold text-[#EDF7F2] text-lg">Mallevo</span>
                 </div>
                 <p className="text-[#EDF7F2] font-semibold text-sm mb-1">Em breve nas lojas</p>
                 <p className="text-[#EDF7F2]/40 text-xs mb-5">

@@ -48,9 +48,9 @@ export default function ConsumerNavbar() {
             {/* Logo */}
             <Link href="/consumidor" className="flex items-center gap-2.5 group">
               <div className="w-8 h-8 rounded-xl bg-[#4CAF82] flex items-center justify-center shadow-lg shadow-[#4CAF82]/25">
-                <span className="font-sora font-bold text-white text-sm leading-none">M</span>
+                <span className="font-jakarta font-bold text-white text-sm leading-none">M</span>
               </div>
-              <span className="font-sora font-bold text-[#EDF7F2] text-lg tracking-tight">
+              <span className="font-jakarta font-bold text-[#EDF7F2] text-lg tracking-tight">
                 Mall<span className="text-[#4CAF82]">evo</span>
               </span>
             </Link>
@@ -119,7 +119,7 @@ export default function ConsumerNavbar() {
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             >
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
-                <span className="font-sora font-bold text-[#EDF7F2] text-lg">
+                <span className="font-jakarta font-bold text-[#EDF7F2] text-lg">
                   Mall<span className="text-[#4CAF82]">evo</span>
                 </span>
                 <button

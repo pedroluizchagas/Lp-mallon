@@ -40,7 +40,7 @@ export default function ConsumerComoFunciona() {
         <div className="mb-20">
           {/* Section number + rule */}
           <AnimatedSection className="flex items-center gap-4 mb-8" direction="none">
-            <span className="font-sora font-bold text-sm tracking-[0.2em] text-[#4CAF82]/40">01</span>
+            <span className="font-jakarta font-bold text-sm tracking-[0.2em] text-[#4CAF82]/40">01</span>
             <motion.div
               className="flex-1 h-px bg-linear-to-r from-white/8 to-transparent"
               initial={{ scaleX: 0, originX: 0 }}
@@ -81,7 +81,7 @@ export default function ConsumerComoFunciona() {
                   >
                     {/* Number watermark */}
                     <span
-                      className="absolute top-5 right-7 font-sora font-bold text-[88px] leading-none select-none pointer-events-none"
+                      className="absolute top-5 right-7 font-jakarta font-bold text-[88px] leading-none select-none pointer-events-none"
                       style={{ color: `${accentColor}05` }}
                     >
                       {num}
@@ -99,7 +99,7 @@ export default function ConsumerComoFunciona() {
                       {/* Step label */}
                       <div className="flex items-center gap-3 mb-7">
                         <span
-                          className="font-sora font-bold text-xs tracking-[0.2em]"
+                          className="font-jakarta font-bold text-xs tracking-[0.2em]"
                           style={{ color: `${accentColor}50` }}
                         >
                           {num}
@@ -116,7 +116,7 @@ export default function ConsumerComoFunciona() {
                       </div>
 
                       {/* Text */}
-                      <h3 className="font-sora font-bold text-xl text-[#EDF7F2] mb-3 leading-snug">
+                      <h3 className="font-jakarta font-bold text-xl text-[#EDF7F2] mb-3 leading-snug">
                         {title}
                       </h3>
                       <p className="text-[#EDF7F2]/45 text-sm leading-relaxed">{desc}</p>

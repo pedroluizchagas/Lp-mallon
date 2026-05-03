@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 
-type BadgeVariant = 'green' | 'amber' | 'outline' | 'dark'
+type BadgeVariant = 'lime' | 'green' | 'outline' | 'dark'
 
 interface BadgeProps {
   children: React.ReactNode
@@ -9,14 +9,14 @@ interface BadgeProps {
 }
 
 const variants: Record<BadgeVariant, string> = {
+  lime:
+    'bg-lime/20 text-ink border border-lime/50 font-semibold',
   green:
-    'bg-verde-medio/10 text-verde-profundo border border-verde-medio/30',
-  amber:
-    'bg-ambar/10 text-[#a06d00] border border-ambar/30',
+    'bg-accent/10 text-accent border border-accent/30',
   outline:
-    'border border-verde-profundo/20 text-verde-profundo bg-transparent',
+    'border border-dark/20 text-ink bg-transparent',
   dark:
-    'bg-verde-profundo text-white',
+    'bg-dark text-white',
 }
 
 export default function Badge({

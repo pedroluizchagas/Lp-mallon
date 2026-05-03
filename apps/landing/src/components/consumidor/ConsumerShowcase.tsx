@@ -268,7 +268,7 @@ export default function ConsumerShowcase() {
                   {textLines.map((line, i) => (
                     <div key={i} className="overflow-hidden">
                       <motion.p
-                        className={`font-sora font-black leading-[0.92] tracking-tight text-[#EDF7F2] whitespace-nowrap ${
+                        className={`font-jakarta font-black leading-[0.92] tracking-tight text-[#EDF7F2] whitespace-nowrap ${
                           i < 2
                             ? 'text-[clamp(2rem,5.5vw,4.5rem)]'
                             : 'text-[clamp(1rem,2.5vw,2rem)] text-[#EDF7F2]/50 font-medium'

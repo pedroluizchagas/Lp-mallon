@@ -63,7 +63,7 @@ export default function ConsumerScrollText() {
         </motion.p>
 
         {/* Scroll-driven word reveal */}
-        <p className="font-sora font-bold text-[clamp(1.75rem,4.5vw,3.25rem)] leading-[1.2] tracking-tight">
+        <p className="font-jakarta font-bold text-[clamp(1.75rem,4.5vw,3.25rem)] leading-[1.2] tracking-tight">
           {words.map((word, i) => {
             const total = words.length
             // each word starts revealing slightly before the prior one finishes

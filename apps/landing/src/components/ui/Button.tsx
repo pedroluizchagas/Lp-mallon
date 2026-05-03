@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'amber' | 'ghost'
+type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost'
 type ButtonSize = 'sm' | 'md' | 'lg'
 
 interface ButtonProps {
@@ -21,15 +21,13 @@ interface ButtonProps {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    'bg-verde-profundo text-white hover:bg-[#153d2e] active:scale-[0.98]',
+    'bg-lime text-lime-ink font-bold hover:bg-lime-dark active:scale-[0.98] shadow-lg shadow-lime/20',
   secondary:
-    'bg-verde-medio text-white hover:bg-[#3d9e71] active:scale-[0.98]',
+    'bg-dark text-white hover:bg-dark-2 active:scale-[0.98]',
   outline:
-    'border-2 border-verde-profundo text-verde-profundo hover:bg-verde-profundo hover:text-white active:scale-[0.98]',
-  amber:
-    'bg-ambar text-[#1A1A1A] font-semibold hover:bg-[#e8961a] active:scale-[0.98] shadow-lg shadow-ambar/20',
+    'border-2 border-dark text-ink hover:bg-dark hover:text-white active:scale-[0.98]',
   ghost:
-    'text-verde-profundo hover:text-verde-medio underline-offset-4 hover:underline',
+    'text-ink hover:text-ink-2 underline-offset-4 hover:underline',
 }
 
 const sizes: Record<ButtonSize, string> = {

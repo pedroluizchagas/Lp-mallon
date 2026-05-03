@@ -170,7 +170,7 @@ export default function ConsumerHero() {
             <span className="w-1.5 h-1.5 rounded-full bg-[#4CAF82] shadow-[0_0_8px_rgba(76,175,130,1)]" />
             Disponível agora · Divinópolis, MG
           </p>
-          <h2 className="font-sora font-bold text-2xl sm:text-3xl lg:text-[1.9rem] text-[#EDF7F2] leading-[1.1] tracking-tight">
+          <h2 className="font-jakarta font-bold text-2xl sm:text-3xl lg:text-[1.9rem] text-[#EDF7F2] leading-[1.1] tracking-tight">
             O delivery que<br />
             Divinópolis<br />
             <em className="not-italic text-[#4CAF82]">merecia.</em>
@@ -245,7 +245,7 @@ export default function ConsumerHero() {
           transition={{ duration: 1.1, delay: 0.06, ease: EASE }}
         >
           <span
-            className="font-sora font-black leading-[0.80] tracking-[-0.03em] text-[#EDF7F2] whitespace-nowrap pb-3 sm:pb-4"
+            className="font-jakarta font-black leading-[0.80] tracking-[-0.03em] text-[#EDF7F2] whitespace-nowrap pb-3 sm:pb-4"
             style={{ fontSize: '23vw' }}
           >
             Mall<span className="text-[#4CAF82]">evo</span>

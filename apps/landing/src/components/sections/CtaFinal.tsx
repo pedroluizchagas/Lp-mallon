@@ -11,16 +11,14 @@ const CTA_URL =
 
 export default function CtaFinal() {
   return (
-    <section className="bg-verde-profundo py-20 lg:py-28 overflow-hidden relative">
+    <section className="bg-dark py-20 lg:py-28 overflow-hidden relative">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Large decorative number */}
-        <span className="absolute -right-8 top-1/2 -translate-y-1/2 font-sora font-bold text-[20rem] text-white/[0.025] select-none leading-none">
+        <span className="absolute -right-8 top-1/2 -translate-y-1/2 font-jakarta font-bold text-[20rem] text-white/2 select-none leading-none">
           ✓
         </span>
-        {/* Gradient orbs */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-verde-medio/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-ambar/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-lime/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-lime/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -28,7 +26,7 @@ export default function CtaFinal() {
         <AnimatedSection>
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="flex-1 h-px bg-white/10 max-w-16" />
-            <span className="text-verde-medio font-sora font-bold text-sm tracking-widest uppercase">
+            <span className="text-lime font-jakarta font-bold text-sm tracking-widest uppercase">
               09
             </span>
             <div className="flex-1 h-px bg-white/10 max-w-16" />
@@ -37,16 +35,16 @@ export default function CtaFinal() {
 
         {/* Headline */}
         <AnimatedSection delay={0.1}>
-          <h2 className="font-sora text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+          <h2 className="font-jakarta text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
             Pronto para colocar sua
             <br />
-            <span className="text-ambar">loja no digital?</span>
+            <span className="text-lime">loja no digital?</span>
           </h2>
         </AnimatedSection>
 
         {/* Subtitle */}
         <AnimatedSection delay={0.2}>
-          <p className="text-white/70 text-lg lg:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
+          <p className="text-white/60 text-lg lg:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
             Junte-se aos lojistas de Divinópolis que já vendem pela Mallevo.
             Comece grátis por 14 dias — sem cartão de crédito.
           </p>
@@ -58,7 +56,7 @@ export default function CtaFinal() {
             href={CTA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-ambar text-[#1A1A1A] font-bold px-10 py-5 rounded-2xl text-lg lg:text-xl hover:bg-[#e8961a] transition-colors shadow-2xl shadow-ambar/30"
+            className="inline-flex items-center gap-3 bg-lime text-lime-ink font-bold px-10 py-5 rounded-2xl text-lg lg:text-xl hover:bg-lime-dark transition-colors shadow-2xl shadow-lime/20"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -69,19 +67,19 @@ export default function CtaFinal() {
 
         {/* Trust indicators */}
         <AnimatedSection delay={0.4} className="mt-8">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-white/50 text-sm">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-white/40 text-sm">
             <span className="flex items-center gap-2">
-              <span className="text-verde-medio">✓</span>
+              <span className="text-lime">✓</span>
               14 dias grátis
             </span>
             <span className="hidden sm:block w-1 h-1 bg-white/20 rounded-full" />
             <span className="flex items-center gap-2">
-              <span className="text-verde-medio">✓</span>
+              <span className="text-lime">✓</span>
               Sem cartão de crédito
             </span>
             <span className="hidden sm:block w-1 h-1 bg-white/20 rounded-full" />
             <span className="flex items-center gap-2">
-              <span className="text-verde-medio">✓</span>
+              <span className="text-lime">✓</span>
               Cancele quando quiser
             </span>
           </div>
@@ -93,14 +91,14 @@ export default function CtaFinal() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
               {[
                 { value: 'R$1,00', label: 'comissão por pedido' },
-                { value: 'D+7', label: 'para receber' },
-                { value: '24/7', label: 'plataforma disponível' },
+                { value: 'D+7',    label: 'para receber' },
+                { value: '24/7',   label: 'plataforma disponível' },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <p className="font-sora font-bold text-3xl text-white mb-1">
+                  <p className="font-jakarta font-bold text-3xl text-lime mb-1">
                     {stat.value}
                   </p>
-                  <p className="text-white/50 text-sm">{stat.label}</p>
+                  <p className="text-white/40 text-sm">{stat.label}</p>
                 </div>
               ))}
             </div>

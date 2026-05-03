@@ -111,7 +111,7 @@ export function HeadingReveal({
         <div key={i} className="overflow-hidden">
           <motion.span
             className={cn(
-              'block font-sora font-bold text-5xl lg:text-7xl leading-[0.95] tracking-tight',
+              'block font-jakarta font-bold text-5xl lg:text-7xl leading-[0.95] tracking-tight',
               line.accent ? 'text-[#4CAF82]' : 'text-[#EDF7F2]'
             )}
             initial={{ y: '110%' }}

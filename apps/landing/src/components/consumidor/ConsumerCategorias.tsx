@@ -22,7 +22,7 @@ export default function ConsumerCategorias() {
         {/* Header */}
         <div className="mb-20">
           <AnimatedSection className="flex items-center gap-4 mb-8" direction="none">
-            <span className="font-sora font-bold text-sm tracking-[0.2em] text-[#4CAF82]/40">02</span>
+            <span className="font-jakarta font-bold text-sm tracking-[0.2em] text-[#4CAF82]/40">02</span>
             <motion.div
               className="flex-1 h-px bg-linear-to-r from-white/8 to-transparent"
               initial={{ scaleX: 0, originX: 0 }}
@@ -77,7 +77,7 @@ export default function ConsumerCategorias() {
                     >
                       {cat.emoji}
                     </motion.div>
-                    <p className="font-sora font-semibold text-[#EDF7F2] text-sm">{cat.label}</p>
+                    <p className="font-jakarta font-semibold text-[#EDF7F2] text-sm">{cat.label}</p>
                     <p className="text-[#EDF7F2]/30 text-xs mt-1">{cat.count}</p>
                   </div>
                 </motion.button>

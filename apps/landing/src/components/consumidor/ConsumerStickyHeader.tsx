@@ -108,7 +108,7 @@ function MenuItem({
             {String(index + 1).padStart(2, '0')}
           </span>
           <motion.span
-            className="font-sora font-bold text-[clamp(2rem,7vw,5rem)] leading-none tracking-tight"
+            className="font-jakarta font-bold text-[clamp(2rem,7vw,5rem)] leading-none tracking-tight"
             animate={{ color: hovered ? 'rgba(237,247,242,1)' : 'rgba(237,247,242,0.55)' }}
             transition={{ duration: 0.2 }}
           >
@@ -185,7 +185,7 @@ export default function ConsumerStickyHeader() {
         className="fixed top-5 left-1/2 -translate-x-1/2 z-50"
         style={{ opacity: 0 }}
       >
-        <span className="font-sora font-bold text-xl text-[#EDF7F2] tracking-tight leading-none select-none">
+        <span className="font-jakarta font-bold text-xl text-[#EDF7F2] tracking-tight leading-none select-none">
           Mall<span className="text-[#4CAF82]">evo</span>
         </span>
       </Link>

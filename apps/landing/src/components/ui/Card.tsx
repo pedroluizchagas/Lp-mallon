@@ -17,10 +17,10 @@ export default function Card({
   highlight = false,
 }: CardProps) {
   const base = cn(
-    'bg-white rounded-2xl shadow-md border',
+    'bg-white rounded-2xl border',
     highlight
-      ? 'border-verde-medio shadow-verde-medio/20 shadow-lg'
-      : 'border-gray-100',
+      ? 'border-lime shadow-lg shadow-lime/15'
+      : 'border-surface-alt shadow-sm',
     className
   )
 
@@ -28,7 +28,7 @@ export default function Card({
     return (
       <motion.div
         className={base}
-        whileHover={{ y: -4, boxShadow: '0 20px 40px rgba(26,77,58,0.12)' }}
+        whileHover={{ y: -4, boxShadow: '0 20px 40px rgba(15,15,13,0.10)' }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
       >
         {children}
