@@ -29,3 +29,9 @@ pnpm-debug.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Turborepo
+.turbo/
+
+# Next.js generated
+next-env.d.ts
