@@ -1,5 +1,6 @@
 {
   "name": "@mallevo/config-typescript",
   "version": "0.0.1",
-  "private": true
+  "private": true,
+  "files": ["tsconfig.base.json", "tsconfig.nextjs.json"]
 }
