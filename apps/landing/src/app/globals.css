@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap");
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 
 :root {
+  --font-jakarta: 'Plus Jakarta Sans';
+  --font-inter:   'Inter';
   --dark:        #18181b;
   --dark-2:      #1d1d1b;
   --lime:        #c1f148;

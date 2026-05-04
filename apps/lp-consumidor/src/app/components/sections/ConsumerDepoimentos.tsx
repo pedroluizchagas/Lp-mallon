@@ -109,7 +109,7 @@ export default function ConsumerDepoimentos() {
                     </div>
 
                     {/* Quote mark */}
-                    <div className="text-[#4CAF82]/15 font-jakarta font-bold text-6xl leading-none mb-2 select-none">"</div>
+                    <div className="text-[#4CAF82]/15 font-jakarta font-bold text-6xl leading-none mb-2 select-none">&ldquo;</div>
 
                     {/* Quote */}
                     <p className="text-[#EDF7F2]/65 text-sm leading-relaxed flex-1 mb-6">
