@@ -6,7 +6,7 @@ Monorepo pnpm + Turborepo com três landing pages independentes e pacotes compar
 
 | App | Domínio | Porta dev |
 |-----|---------|-----------|
-| `lp-consumidor` | lp.mallevo.com.br | 3000 |
+| `lp-consumidor` | mallevo.com.br | 3000 |
 | `lp-parceiros` | parceiros.mallevo.com.br | 3001 |
 | `lp-entregadores` | entregadores.mallevo.com.br | 3002 |
 
