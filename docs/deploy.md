@@ -24,17 +24,19 @@ Repositório GitHub: pedroluizchagas/lp-mallon
 
 ## Criando os Projetos no Vercel
 
+> **Importante:** cada app tem seu próprio `package.json` com `next` como dependência. Por isso, configure o **Root Directory** apontando para cada app — o Vercel auto-detecta Next.js e pnpm sem comandos customizados.
+
 ### Projeto 1 — LP Consumidor
 
 1. Acesse [vercel.com/new](https://vercel.com/new) e importe o repositório `pedroluizchagas/lp-mallon`
 2. Configure o projeto:
    - **Project Name:** `mallevo-lp-consumidor`
-   - **Framework Preset:** Next.js
-   - **Root Directory:** *(deixar em branco — é o root do repo)*
-3. Em **Build & Output Settings**, expanda e configure:
-   - **Build Command:** `pnpm --filter lp-consumidor build`
-   - **Output Directory:** `apps/lp-consumidor/.next`
-   - **Install Command:** `pnpm install --frozen-lockfile=false`
+   - **Framework Preset:** Next.js *(auto-detectado)*
+   - **Root Directory:** `apps/lp-consumidor`
+3. Em **Build & Output Settings** — **não alterar nada** (deixar todos os campos em branco):
+   - Build Command: *(vazio — Vercel usa `next build`)*
+   - Output Directory: *(vazio — Vercel usa `.next`)*
+   - Install Command: *(vazio — pnpm detectado automaticamente via `pnpm-lock.yaml`)*
 4. Adicione as **Environment Variables** (ver seção abaixo)
 5. Clique em **Deploy**
 
@@ -43,12 +45,9 @@ Repositório GitHub: pedroluizchagas/lp-mallon
 1. Acesse [vercel.com/new](https://vercel.com/new) e importe o **mesmo repositório**
 2. Configure o projeto:
    - **Project Name:** `mallevo-lp-parceiros`
-   - **Framework Preset:** Next.js
-   - **Root Directory:** *(deixar em branco)*
-3. **Build & Output Settings:**
-   - **Build Command:** `pnpm --filter lp-parceiros build`
-   - **Output Directory:** `apps/lp-parceiros/.next`
-   - **Install Command:** `pnpm install --frozen-lockfile=false`
+   - **Framework Preset:** Next.js *(auto-detectado)*
+   - **Root Directory:** `apps/lp-parceiros`
+3. **Build & Output Settings** — deixar todos os campos em branco
 4. Adicione as **Environment Variables**
 5. Clique em **Deploy**
 
@@ -57,12 +56,9 @@ Repositório GitHub: pedroluizchagas/lp-mallon
 1. Acesse [vercel.com/new](https://vercel.com/new) e importe o **mesmo repositório**
 2. Configure o projeto:
    - **Project Name:** `mallevo-lp-entregadores`
-   - **Framework Preset:** Next.js
-   - **Root Directory:** *(deixar em branco)*
-3. **Build & Output Settings:**
-   - **Build Command:** `pnpm --filter lp-entregadores build`
-   - **Output Directory:** `apps/lp-entregadores/.next`
-   - **Install Command:** `pnpm install --frozen-lockfile=false`
+   - **Framework Preset:** Next.js *(auto-detectado)*
+   - **Root Directory:** `apps/lp-entregadores`
+3. **Build & Output Settings** — deixar todos os campos em branco
 4. Adicione as **Environment Variables**
 5. Clique em **Deploy**
 
