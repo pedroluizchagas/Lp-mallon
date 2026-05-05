@@ -22,7 +22,6 @@
     "clean":              "turbo clean && rm -rf node_modules"
   },
   "devDependencies": {
-    "next": "15.1.0",
     "turbo": "^2.9.8",
     "typescript": "^5"
   },
