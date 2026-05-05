@@ -6,7 +6,8 @@
     "dev": "next dev --port 3000",
     "build": "next build",
     "start": "next start --port 3000",
-    "lint": "next lint"
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "next": "15.1.0",
@@ -14,7 +15,8 @@
     "react-dom": "^19.0.0",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.438.0",
-    "@mallevo/ui": "workspace:*"
+    "@mallevo/ui": "workspace:*",
+    "@mallevo/brand": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20",
