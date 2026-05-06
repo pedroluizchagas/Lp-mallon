@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Plus } from 'lucide-react'
+import { Plus, CheckCircle2 } from 'lucide-react'
 import { AnimatedSection } from '@mallevo/ui'
 
 const faqs = [
@@ -149,14 +149,15 @@ export default function Faq() {
                 Em resumo
               </p>
               {[
-                '✅ 14 dias grátis',
-                '✅ R$1,00 por pedido',
-                '✅ Repasse em D+7',
-                '✅ Cancele quando quiser',
+                '14 dias grátis',
+                'R$1,00 por pedido',
+                'Repasse em D+7',
+                'Cancele quando quiser',
               ].map((item) => (
-                <p key={item} className="text-ink-2 text-sm font-medium py-1.5">
-                  {item}
-                </p>
+                <div key={item} className="flex items-center gap-2 py-1.5">
+                  <CheckCircle2 size={14} className="text-accent shrink-0" />
+                  <p className="text-ink-2 text-sm font-medium">{item}</p>
+                </div>
               ))}
             </div>
           </AnimatedSection>

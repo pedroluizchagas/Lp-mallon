@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Clock, DollarSign, Map, Bike, Smartphone, Shield, ArrowRight } from 'lucide-react'
+import { Clock, DollarSign, Map, Bike, Smartphone, Shield, ArrowRight, Star } from 'lucide-react'
 import { AnimatedSection, StaggerItem } from '@mallevo/ui'
 
 const COURIER_URL =
@@ -79,7 +79,9 @@ export default function ParaEntregadores() {
                     </div>
                     <div>
                       <p className="text-white/40 text-xs">Avaliação</p>
-                      <p className="text-white font-jakarta font-bold text-xl">4.9 ⭐</p>
+                      <p className="text-white font-jakarta font-bold text-xl flex items-center gap-1">
+                        4.9 <Star size={14} className="fill-lime text-lime" />
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -92,7 +94,10 @@ export default function ParaEntregadores() {
                   viewport={{ once: true }}
                   transition={{ type: 'spring', stiffness: 200, delay: 0.4 }}
                 >
-                  <p className="text-lime-ink font-jakarta font-bold text-sm">🟢 Online</p>
+                  <p className="text-lime-ink font-jakarta font-bold text-sm flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-lime-ink inline-block" />
+                    Online
+                  </p>
                 </motion.div>
 
                 {/* Floating order notification */}

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { AnimatedSection } from '@mallevo/ui'
 
 const CTA_URL =
@@ -14,9 +14,8 @@ export default function CtaFinal() {
     <section className="bg-dark py-20 lg:py-28 overflow-hidden relative">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <span className="absolute -right-8 top-1/2 -translate-y-1/2 font-jakarta font-bold text-[20rem] text-white/2 select-none leading-none">
-          ✓
-        </span>
+        <div className="absolute -right-16 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-white/[0.03]" />
+        <div className="absolute -right-8 top-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border border-white/[0.04]" />
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-lime/8 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-lime/5 rounded-full blur-3xl" />
       </div>
@@ -69,17 +68,17 @@ export default function CtaFinal() {
         <AnimatedSection delay={0.4} className="mt-8">
           <div className="flex flex-wrap items-center justify-center gap-6 text-white/40 text-sm">
             <span className="flex items-center gap-2">
-              <span className="text-lime">✓</span>
+              <CheckCircle2 size={14} className="text-lime shrink-0" />
               14 dias grátis
             </span>
             <span className="hidden sm:block w-1 h-1 bg-white/20 rounded-full" />
             <span className="flex items-center gap-2">
-              <span className="text-lime">✓</span>
+              <CheckCircle2 size={14} className="text-lime shrink-0" />
               Sem cartão de crédito
             </span>
             <span className="hidden sm:block w-1 h-1 bg-white/20 rounded-full" />
             <span className="flex items-center gap-2">
-              <span className="text-lime">✓</span>
+              <CheckCircle2 size={14} className="text-lime shrink-0" />
               Cancele quando quiser
             </span>
           </div>

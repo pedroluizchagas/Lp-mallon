@@ -1,7 +1,22 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MapPin, CreditCard, Star, MessageSquare } from 'lucide-react'
+import {
+  MapPin,
+  CreditCard,
+  Star,
+  MessageSquare,
+  Home,
+  Search,
+  ShoppingCart,
+  User,
+  Utensils,
+  ShoppingBag,
+  Activity,
+  PawPrint,
+  MapPinned,
+  Bike,
+} from 'lucide-react'
 import { AnimatedSection, StaggerItem } from '@mallevo/ui'
 
 const features = [
@@ -10,6 +25,133 @@ const features = [
   { icon: Star,         label: 'Avalie sua experiência' },
   { icon: MessageSquare, label: 'Fale direto com a loja' },
 ]
+
+const CATEGORIES = [
+  { Icon: Utensils,    label: 'Comida' },
+  { Icon: ShoppingBag, label: 'Mercado' },
+  { Icon: Activity,    label: 'Farmácia' },
+  { Icon: PawPrint,    label: 'Pet' },
+]
+
+const STORES = [
+  { name: 'Pizzaria da Vila', sub: '25–35 min', rating: '4.8', tag: 'Entrega grátis', tagColor: 'text-accent' },
+  { name: 'Mercado Bom Preço', sub: '20–30 min', rating: '4.6', tag: 'R$ 5,00 entrega', tagColor: 'text-ink-3' },
+]
+
+function PhoneConsumerApp() {
+  return (
+    <div className="relative w-[260px] bg-[#111114] rounded-[36px] border-2 border-white/12 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.05)] overflow-hidden">
+      {/* Dynamic island */}
+      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[72px] h-[18px] bg-black rounded-full z-20" />
+
+      {/* Status bar */}
+      <div className="flex items-center justify-between px-6 pt-8 pb-1">
+        <span className="text-white/60 text-[10px] font-semibold">9:41</span>
+        <div className="flex items-center gap-1.5">
+          <div className="flex gap-0.5 items-end">
+            {[3,5,7,9].map((h, i) => (
+              <div key={i} className="w-1 bg-white/50 rounded-sm" style={{ height: h }} />
+            ))}
+          </div>
+          <svg viewBox="0 0 16 12" className="w-4 h-3 fill-white/50">
+            <path d="M8 2.4C9.9 2.4 11.6 3.15 12.9 4.35L14.2 3.05C12.55 1.55 10.38.65 8 .65 5.62.65 3.45 1.55 1.8 3.05L3.1 4.35C4.4 3.15 6.1 2.4 8 2.4z" />
+            <path d="M8 5.4C9.2 5.4 10.3 5.9 11.1 6.7L12.4 5.4C11.25 4.3 9.7 3.65 8 3.65c-1.7 0-3.25.65-4.4 1.75L4.9 6.7C5.7 5.9 6.8 5.4 8 5.4z" />
+            <circle cx="8" cy="10" r="1.5" />
+          </svg>
+          <div className="flex items-center gap-0.5">
+            <div className="w-[18px] h-[9px] rounded-[2px] border border-white/40 flex items-center px-[1px]">
+              <div className="w-[13px] h-[5px] bg-white/60 rounded-[1px]" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Header */}
+      <div className="px-5 pt-3 pb-3">
+        <div className="flex items-center justify-between mb-0.5">
+          <p className="text-white/40 text-[10px]">Boa tarde,</p>
+          <div className="w-7 h-7 rounded-full bg-lime/20 flex items-center justify-center">
+            <User size={13} className="text-lime" />
+          </div>
+        </div>
+        <p className="text-white font-jakarta font-bold text-[15px] leading-tight">
+          O que você quer hoje?
+        </p>
+        <div className="flex items-center gap-1.5 mt-1.5">
+          <MapPinned size={10} className="text-lime shrink-0" />
+          <span className="text-white/40 text-[10px]">Divinópolis, MG</span>
+        </div>
+      </div>
+
+      {/* Search bar */}
+      <div className="mx-4 bg-white/8 rounded-xl px-3 py-2 mb-4 flex items-center gap-2 border border-white/8">
+        <Search size={12} className="text-white/30" />
+        <span className="text-white/30 text-[11px]">Buscar loja ou produto...</span>
+      </div>
+
+      {/* Categories */}
+      <div className="px-4 mb-4">
+        <p className="text-white/35 text-[9px] font-semibold uppercase tracking-wider mb-2.5">
+          Categorias
+        </p>
+        <div className="flex gap-2">
+          {CATEGORIES.map(({ Icon, label }, i) => (
+            <div
+              key={label}
+              className={`flex flex-col items-center gap-1 flex-1 rounded-xl py-2 border ${
+                i === 0 ? 'bg-lime/15 border-lime/25' : 'bg-white/5 border-white/8'
+              }`}
+            >
+              <Icon size={13} className={i === 0 ? 'text-lime' : 'text-white/40'} />
+              <span className={`text-[8px] font-medium ${i === 0 ? 'text-lime' : 'text-white/40'}`}>
+                {label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Stores */}
+      <div className="px-4 mb-4">
+        <p className="text-white/35 text-[9px] font-semibold uppercase tracking-wider mb-2.5">
+          Em destaque
+        </p>
+        <div className="flex flex-col gap-2">
+          {STORES.map((s, i) => (
+            <div key={i} className="bg-white/6 rounded-xl p-3 flex items-center gap-3 border border-white/8">
+              <div className="w-10 h-10 rounded-xl bg-lime/15 flex items-center justify-center shrink-0">
+                <Utensils size={14} className="text-lime" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-white text-[11px] font-semibold truncate">{s.name}</p>
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <Star size={9} className="fill-lime text-lime" />
+                  <span className="text-white/40 text-[9px]">{s.rating} · {s.sub}</span>
+                </div>
+                <p className={`text-[9px] font-semibold mt-0.5 ${s.tagColor}`}>{s.tag}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom nav */}
+      <div className="bg-[#0d0d10] border-t border-white/8 px-4 py-3 flex justify-around items-center">
+        {[
+          { Icon: Home, active: true },
+          { Icon: Search, active: false },
+          { Icon: ShoppingCart, active: false },
+          { Icon: User, active: false },
+        ].map(({ Icon, active }, i) => (
+          <div key={i} className="flex flex-col items-center gap-0.5">
+            <Icon size={16} className={active ? 'text-lime' : 'text-white/25'} />
+            {active && <div className="w-1 h-1 rounded-full bg-lime" />}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function ParaConsumidores() {
   return (
@@ -95,7 +237,6 @@ export default function ParaConsumidores() {
                 >
                   <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 18.5v-13c0-.83.95-1.3 1.6-.8l11 6.5c.6.35.6 1.25 0 1.6l-11 6.5c-.65.5-1.6.03-1.6-.8z" />
-                    <path d="M3.18 6.32L12.27 12 3.18 17.68z" opacity=".3" />
                   </svg>
                   <div className="text-left">
                     <p className="text-xs text-ink-3 leading-none">Disponível no</p>
@@ -114,94 +255,29 @@ export default function ParaConsumidores() {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               >
-                {/* Phone frame */}
-                <div className="w-64 h-130 bg-dark-2 rounded-[2.5rem] border-4 border-white/10 shadow-2xl overflow-hidden relative">
-                  {/* Status bar */}
-                  <div className="flex items-center justify-between px-6 pt-4 pb-2">
-                    <span className="text-white text-xs font-medium">9:41</span>
-                    <div className="w-24 h-5 bg-black/30 rounded-full" />
-                    <div className="flex gap-1 items-center">
-                      <div className="w-3 h-2 border border-white/40 rounded-sm">
-                        <div className="w-2 h-full bg-lime rounded-sm" />
-                      </div>
-                    </div>
-                  </div>
+                <PhoneConsumerApp />
 
-                  {/* App header */}
-                  <div className="px-5 pt-2 pb-4">
-                    <p className="text-white/40 text-xs">Olá, Maria!</p>
-                    <p className="text-white font-jakarta font-bold text-lg">
-                      O que você quer?
-                    </p>
-                  </div>
-
-                  {/* Search bar */}
-                  <div className="mx-5 bg-white/10 rounded-xl px-4 py-2.5 mb-4">
-                    <p className="text-white/40 text-sm">Buscar loja ou produto...</p>
-                  </div>
-
-                  {/* Categories */}
-                  <div className="px-5 mb-4">
-                    <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-3">
-                      Categorias
-                    </p>
-                    <div className="flex gap-2 overflow-hidden">
-                      {['🍕 Pizza', '🛒 Mercado', '💊 Farma', '🐾 Pet'].map((cat) => (
-                        <div
-                          key={cat}
-                          className="bg-white/10 rounded-xl px-3 py-2 text-white text-xs font-medium whitespace-nowrap"
-                        >
-                          {cat}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Store card */}
-                  <div className="mx-5 bg-white/10 rounded-2xl p-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-lime/20 flex items-center justify-center text-2xl shrink-0">
-                        🍕
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-white font-semibold text-sm truncate">
-                          Pizzaria da Vila
-                        </p>
-                        <p className="text-white/40 text-xs mt-0.5">⭐ 4.8 · 25–35 min</p>
-                        <p className="text-lime text-xs font-semibold mt-1">
-                          Entrega grátis
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom nav */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-dark/80 backdrop-blur px-6 py-3 flex justify-around">
-                    {['🏠', '🔍', '🛒', '👤'].map((icon) => (
-                      <span key={icon} className="text-xl">{icon}</span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Floating order status */}
+                {/* Floating: order tracking */}
                 <motion.div
-                  className="absolute -right-8 top-1/3 bg-white rounded-2xl shadow-xl p-3 border border-surface-alt"
+                  className="absolute -right-10 top-1/3 bg-white rounded-2xl shadow-xl p-3.5 border border-surface-alt min-w-[140px]"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
                 >
-                  <p className="text-xs font-semibold text-ink mb-1">
-                    Pedido a caminho 🛵
-                  </p>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Bike size={13} className="text-accent shrink-0" />
+                    <p className="text-[11px] font-bold text-ink">A caminho</p>
+                  </div>
                   <div className="flex gap-1">
-                    {['✓', '✓', '◌'].map((step, i) => (
+                    {[true, true, false].map((done, i) => (
                       <div
                         key={i}
-                        className={`w-6 h-1.5 rounded-full ${step === '✓' ? 'bg-lime' : 'bg-surface-alt'}`}
+                        className={`flex-1 h-1.5 rounded-full ${done ? 'bg-lime' : 'bg-surface-alt'}`}
                       />
                     ))}
                   </div>
+                  <p className="text-[9px] text-ink-3 mt-1.5">Chega em ~8 min</p>
                 </motion.div>
               </motion.div>
             </div>

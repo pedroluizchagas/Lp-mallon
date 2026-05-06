@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Check, X, ArrowRight } from 'lucide-react'
+import { Check, X, ArrowRight, Zap, Star } from 'lucide-react'
 import { AnimatedSection, StaggerItem } from '@mallevo/ui'
 import { Badge } from '@mallevo/ui'
 
@@ -92,7 +92,7 @@ export default function Planos() {
         {/* Trial banner */}
         <AnimatedSection delay={0.1} className="mb-10">
           <div className="bg-lime/10 border border-lime/30 rounded-2xl py-3.5 px-6 inline-flex items-center gap-3">
-            <span className="text-xl">✨</span>
+            <Zap size={16} className="text-lime shrink-0" />
             <p className="text-ink font-semibold">
               Todos os planos incluem{' '}
               <strong>14 dias grátis para testar</strong>
@@ -122,7 +122,8 @@ export default function Planos() {
                   {plan.badge && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                       <Badge variant="lime" className="shadow-lg shadow-lime/20">
-                        ⭐ {plan.badge}
+                        <Star size={10} className="inline fill-current mr-1 -mt-px" />
+                        {plan.badge}
                       </Badge>
                     </div>
                   )}

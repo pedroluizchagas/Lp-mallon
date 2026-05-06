@@ -11,8 +11,9 @@ const testimonials = [
     name: 'Marcos A.',
     role: 'Pizzaria da Vila',
     city: 'Divinópolis',
-    emoji: '🍕',
+    initials: 'MA',
     accent: 'bg-dark',
+    initialsColor: 'text-lime',
   },
   {
     stars: 5,
@@ -21,8 +22,9 @@ const testimonials = [
     name: 'Fernanda C.',
     role: 'Marmitas da Fê',
     city: 'Divinópolis',
-    emoji: '🍱',
+    initials: 'FC',
     accent: 'bg-lime',
+    initialsColor: 'text-lime-ink',
   },
   {
     stars: 5,
@@ -31,8 +33,9 @@ const testimonials = [
     name: 'Ricardo M.',
     role: 'Entregador autônomo',
     city: 'Divinópolis',
-    emoji: '🛵',
+    initials: 'RM',
     accent: 'bg-accent',
+    initialsColor: 'text-white',
   },
 ]
 
@@ -87,9 +90,11 @@ export default function Depoimentos() {
                     {/* Author */}
                     <div className="flex items-center gap-3">
                       <div
-                        className={`w-11 h-11 rounded-full ${t.accent} flex items-center justify-center text-xl shrink-0`}
+                        className={`w-11 h-11 rounded-full ${t.accent} flex items-center justify-center shrink-0`}
                       >
-                        {t.emoji}
+                        <span className={`font-jakarta font-bold text-[13px] ${t.initialsColor}`}>
+                          {t.initials}
+                        </span>
                       </div>
                       <div>
                         <p className="font-jakarta font-bold text-ink text-sm">

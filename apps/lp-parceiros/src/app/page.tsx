@@ -2,6 +2,7 @@ import { Navbar, Footer } from '@mallevo/ui'
 import Hero from './components/sections/Hero'
 import ComoFunciona from './components/sections/ComoFunciona'
 import DiferenciaisLojista from './components/sections/DiferenciaisLojista'
+import DashboardPreview from './components/sections/DashboardPreview'
 import Planos from './components/sections/Planos'
 import ParaConsumidores from './components/sections/ParaConsumidores'
 import ParaEntregadores from './components/sections/ParaEntregadores'
@@ -17,6 +18,7 @@ export default function LojistasPage() {
         <Hero />
         <ComoFunciona />
         <DiferenciaisLojista />
+        <DashboardPreview />
         <Planos />
         <ParaConsumidores />
         <ParaEntregadores />
