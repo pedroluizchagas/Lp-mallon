@@ -2,6 +2,7 @@ import { Navbar, Footer } from '@mallevo/ui'
 import EntregadorHero from './components/sections/EntregadorHero'
 import EntregadorBeneficios from './components/sections/EntregadorBeneficios'
 import EntregadorComoFunciona from './components/sections/EntregadorComoFunciona'
+import EntregadorAppPreview from './components/sections/EntregadorAppPreview'
 import EntregadorGanhos from './components/sections/EntregadorGanhos'
 import EntregadorFaq from './components/sections/EntregadorFaq'
 import EntregadorCta from './components/sections/EntregadorCta'
@@ -23,6 +24,7 @@ export default function EntregadoresPage() {
         <EntregadorHero />
         <EntregadorBeneficios />
         <EntregadorComoFunciona />
+        <EntregadorAppPreview />
         <EntregadorGanhos />
         <EntregadorFaq />
         <EntregadorCta />
