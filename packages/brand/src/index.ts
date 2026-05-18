@@ -1,15 +1,15 @@
 export const COLORS = {
-  dark:        '#18181b',
-  'dark-2':    '#1d1d1b',
+  dark:        '#0B0F0D',
+  'dark-2':    '#111714',
   lime:        '#c1f148',
-  'lime-dark': '#a3d22a',
-  'lime-ink':  '#18181b',
-  accent:      '#4CAF82',
-  surface:     '#f6f6f3',
-  'surface-alt': '#ededea',
-  ink:         '#0f0f0d',
-  'ink-2':     '#4a4a46',
-  'ink-3':     '#8a8a84',
+  'lime-dark': '#9dc93a',
+  'lime-ink':  '#1a2a00',
+  accent:      '#2d5a27',
+  surface:     '#f8f9f6',
+  'surface-alt': '#f0f2ec',
+  ink:         '#0d1208',
+  'ink-2':     '#3d4a35',
+  'ink-3':     '#6b7c60',
 } as const
 
 export const URLS = {

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Instagram, MessageCircle, Mail, MapPin, Phone } from 'lucide-react'
 
 interface FooterColumn {
@@ -48,11 +49,14 @@ export default function Footer({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Col 1 — Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-block mb-4">
-              <span className="font-jakarta text-3xl font-bold tracking-tight">
-                <span className="text-white">Mall</span>
-                <span className="text-lime">evo</span>
-              </span>
+            <Link href="/" className="inline-block mb-5" aria-label="Mallevo">
+              <Image
+                src="/images/logos/logoGreen.png"
+                alt="Mallevo"
+                width={190}
+                height={30}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
               O shopping digital de Divinópolis, MG. A plataforma que conecta

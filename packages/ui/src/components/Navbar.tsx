@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { cn } from '../lib/utils'
@@ -71,11 +72,19 @@ export default function Navbar({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <a href="/" className="flex items-center">
-              <span className="font-jakarta text-2xl font-bold tracking-tight">
-                <span className={scrolled || theme === 'dark' ? 'text-white' : 'text-ink'}>Mall</span>
-                <span className="text-lime">evo</span>
-              </span>
+            <a href="/" className="flex items-center" aria-label="Mallevo — página inicial">
+              <Image
+                src={
+                  scrolled || theme === 'dark'
+                    ? '/images/logos/logoGreen.png'
+                    : '/images/logos/logoBlack.png'
+                }
+                alt="Mallevo"
+                width={170}
+                height={27}
+                priority
+                className="h-7 w-auto"
+              />
             </a>
 
             {/* Desktop Nav */}
@@ -140,10 +149,13 @@ export default function Navbar({
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             >
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-                <span className="font-jakarta text-xl font-bold tracking-tight">
-                  <span className="text-white">Mall</span>
-                  <span className="text-lime">evo</span>
-                </span>
+                <Image
+                  src="/images/logos/logoGreen.png"
+                  alt="Mallevo"
+                  width={150}
+                  height={24}
+                  className="h-6 w-auto"
+                />
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="text-white/70 hover:text-white"

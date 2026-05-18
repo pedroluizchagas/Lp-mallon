@@ -34,7 +34,7 @@ const CATEGORIES = [
 ]
 
 const STORES = [
-  { name: 'Pizzaria da Vila', sub: '25–35 min', rating: '4.8', tag: 'Entrega grátis', tagColor: 'text-accent' },
+  { name: 'Pizzaria da Vila', sub: '25–35 min', rating: '4.8', tag: 'Entrega grátis', tagColor: 'text-lime' },
   { name: 'Mercado Bom Preço', sub: '20–30 min', rating: '4.6', tag: 'R$ 5,00 entrega', tagColor: 'text-ink-3' },
 ]
 

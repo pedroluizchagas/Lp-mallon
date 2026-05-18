@@ -161,7 +161,7 @@ export default function EntregadorHero() {
     <section className="relative min-h-screen bg-dark overflow-hidden flex items-center">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_80%_50%,rgba(193,241,72,0.07)_0%,transparent_65%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_15%_85%,rgba(76,175,130,0.06)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_15%_85%,rgba(193,241,72,0.06)_0%,transparent_60%)]" />
       <div className="absolute inset-0 dot-pattern opacity-25" />
       <div className="absolute inset-0 noise-overlay" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lime/25 to-transparent" />

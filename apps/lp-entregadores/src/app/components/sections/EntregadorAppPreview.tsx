@@ -145,12 +145,12 @@ function PhoneActiveDelivery() {
         {/* Route line */}
         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 100" preserveAspectRatio="none">
           <path d="M 30 80 Q 80 40 140 25" stroke="#c1f148" strokeWidth="2" fill="none" strokeDasharray="4 2" />
-          <circle cx="30" cy="80" r="5" fill="#4CAF82" />
+          <circle cx="30" cy="80" r="5" fill="#9dc93a" />
           <circle cx="140" cy="25" r="5" fill="#c1f148" />
         </svg>
         {/* Labels */}
-        <div className="absolute bottom-2 left-6 bg-accent/20 border border-accent/40 rounded-lg px-1.5 py-0.5">
-          <span className="text-accent text-[8px] font-bold">Coleta</span>
+        <div className="absolute bottom-2 left-6 bg-lime-dark/25 border border-lime-dark/50 rounded-lg px-1.5 py-0.5">
+          <span className="text-lime-dark text-[8px] font-bold">Coleta</span>
         </div>
         <div className="absolute top-2 right-8 bg-lime/20 border border-lime/40 rounded-lg px-1.5 py-0.5">
           <span className="text-lime text-[8px] font-bold">Entrega</span>

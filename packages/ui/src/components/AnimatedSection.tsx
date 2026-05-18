@@ -108,7 +108,7 @@ export function HeadingReveal({
           <motion.span
             className={cn(
               'block font-jakarta font-bold text-5xl lg:text-7xl leading-[0.95] tracking-tight',
-              line.accent ? 'text-[#4CAF82]' : 'text-[#EDF7F2]'
+              line.accent ? 'text-lime' : 'text-white'
             )}
             initial={{ y: '110%' }}
             whileInView={{ y: '0%' }}
@@ -139,7 +139,7 @@ export function LabelReveal({
   return (
     <div className={cn('overflow-hidden', className)}>
       <motion.span
-        className="block text-[#4CAF82] text-xs font-semibold uppercase tracking-[0.2em]"
+        className="block text-lime text-xs font-semibold uppercase tracking-[0.2em]"
         initial={{ y: '110%' }}
         whileInView={{ y: '0%' }}
         viewport={{ once: true, margin: '-80px' }}

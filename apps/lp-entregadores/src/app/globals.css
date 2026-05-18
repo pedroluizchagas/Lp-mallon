@@ -2,16 +2,17 @@
 @config "../../tailwind.config.ts";
 
 :root {
-  --dark:        #18181b;
-  --dark-2:      #1d1d1b;
+  --dark:        #0B0F0D;
+  --dark-2:      #111714;
   --lime:        #c1f148;
-  --lime-dark:   #a3d22a;
-  --accent:      #4CAF82;
-  --surface:     #f6f6f3;
-  --surface-alt: #ededea;
-  --ink:         #0f0f0d;
-  --ink-2:       #4a4a46;
-  --ink-3:       #8a8a84;
+  --lime-dark:   #9dc93a;
+  --lime-ink:    #1a2a00;
+  --accent:      #2d5a27;
+  --surface:     #f8f9f6;
+  --surface-alt: #f0f2ec;
+  --ink:         #0d1208;
+  --ink-2:       #3d4a35;
+  --ink-3:       #6b7c60;
 }
 
 html {
@@ -44,7 +45,7 @@ h4 {
 }
 .dark-scroll ::-webkit-scrollbar-thumb,
 :root:has(.dark-page) ::-webkit-scrollbar-thumb {
-  background: #1E2E24;
+  background: #1f2b1f;
   border-radius: 2px;
 }
 .dark-scroll ::-webkit-scrollbar-thumb:hover,
@@ -76,7 +77,7 @@ h4 {
 /* ─── Section separators ─── */
 .section-divider {
   height: 1px;
-  background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+  background: linear-gradient(to right, transparent, var(--surface-alt), transparent);
 }
 
 /* ─── Noise texture overlay ─── */
@@ -86,13 +87,13 @@ h4 {
 
 /* ─── Dot pattern ─── */
 .dot-pattern {
-  background-image: radial-gradient(circle, #18181b18 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(13, 18, 8, 0.09) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 /* ─── Gradient text ─── */
 .text-gradient {
-  background: linear-gradient(135deg, #18181b, #4a4a46);
+  background: linear-gradient(135deg, #0d1208, #3d4a35);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -100,7 +101,7 @@ h4 {
 
 /* ─── Lime text gradient ─── */
 .text-gradient-lime {
-  background: linear-gradient(135deg, #c1f148, #a3d22a);
+  background: linear-gradient(135deg, #c1f148, #9dc93a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -129,5 +130,5 @@ button {
 /* ─── Selection color on dark pages ─── */
 .dark-page ::selection {
   background: rgba(193, 241, 72, 0.25);
-  color: #EDF7F2;
+  color: #f8f9f6;
 }
