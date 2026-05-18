@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 // ─── Arpeggio menu system ─────────────────────────────────────────────────────
 //
@@ -40,7 +41,7 @@ function Hamburger({ open }: { open: boolean }) {
     <div className="flex flex-col items-end justify-center gap-1.75 w-7 h-7">
       {/* Top line */}
       <motion.span
-        className="block h-[1.5px] bg-[#EDF7F2] rounded-full origin-center"
+        className="block h-[1.5px] bg-[#f8f9f6] rounded-full origin-center"
         animate={open
           ? { rotate: 45, y: 8.5, width: 24 }
           : { rotate: 0,  y: 0,   width: 24 }
@@ -50,7 +51,7 @@ function Hamburger({ open }: { open: boolean }) {
       />
       {/* Mid line */}
       <motion.span
-        className="block h-[1.5px] bg-[#EDF7F2] rounded-full"
+        className="block h-[1.5px] bg-[#f8f9f6] rounded-full"
         animate={open
           ? { opacity: 0, scaleX: 0 }
           : { opacity: 1, scaleX: 1 }
@@ -60,7 +61,7 @@ function Hamburger({ open }: { open: boolean }) {
       />
       {/* Bottom line */}
       <motion.span
-        className="block h-[1.5px] bg-[#EDF7F2] rounded-full origin-center"
+        className="block h-[1.5px] bg-[#f8f9f6] rounded-full origin-center"
         animate={open
           ? { rotate: -45, y: -8.5, width: 24 }
           : { rotate: 0,   y: 0,    width: 24 }
@@ -104,7 +105,7 @@ function MenuItem({
       >
         {/* Left: index + label */}
         <div className="flex items-baseline gap-4 sm:gap-6">
-          <span className="text-[#EDF7F2]/20 text-xs font-mono tabular-nums select-none">
+          <span className="text-[#f8f9f6]/20 text-xs font-mono tabular-nums select-none">
             {String(index + 1).padStart(2, '0')}
           </span>
           <motion.span
@@ -118,7 +119,7 @@ function MenuItem({
 
         {/* Right: arrow — slides in on hover */}
         <motion.span
-          className="text-[#4CAF82] text-xl sm:text-2xl lg:text-3xl font-light select-none"
+          className="text-[#c1f148] text-xl sm:text-2xl lg:text-3xl font-light select-none"
           animate={{
             opacity: hovered ? 1 : 0,
             x: hovered ? 0 : -10,
@@ -184,10 +185,16 @@ export default function ConsumerStickyHeader() {
         href="/consumidor"
         className="fixed top-5 left-1/2 -translate-x-1/2 z-50"
         style={{ opacity: 0 }}
+        aria-label="Mallevo"
       >
-        <span className="font-jakarta font-bold text-xl text-[#EDF7F2] tracking-tight leading-none select-none">
-          Mall<span className="text-[#4CAF82]">evo</span>
-        </span>
+        <Image
+          src="/images/logos/logoGreen.png"
+          alt="Mallevo"
+          width={150}
+          height={24}
+          priority
+          className="h-6 w-auto select-none"
+        />
       </Link>
 
       {/* ── Hamburger button — fixed top-right ─────────────────────────── */}
@@ -219,7 +226,7 @@ export default function ConsumerStickyHeader() {
             <div className="absolute inset-0 noise-overlay opacity-[0.04] pointer-events-none" />
 
             {/* Ambient glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-125 bg-[#4CAF82]/6 rounded-full blur-[150px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-125 bg-[#c1f148]/6 rounded-full blur-[150px] pointer-events-none" />
 
             {/* Content — bottom-anchored (Arpeggio layout) */}
             <div className="relative flex-1 flex flex-col justify-end px-8 sm:px-12 lg:px-20 pb-12 lg:pb-20">
@@ -258,7 +265,7 @@ export default function ConsumerStickyHeader() {
                       href={href}
                       target={href.startsWith('http') ? '_blank' : undefined}
                       rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="text-[#EDF7F2]/30 hover:text-[#EDF7F2] text-sm font-medium transition-colors duration-200"
+                      className="text-[#f8f9f6]/30 hover:text-[#f8f9f6] text-sm font-medium transition-colors duration-200"
                     >
                       {label}
                     </a>
@@ -268,7 +275,7 @@ export default function ConsumerStickyHeader() {
                 {/* Download CTA */}
                 <motion.button
                   onClick={() => navigate('#baixar-app')}
-                  className="flex items-center gap-2 bg-[#4CAF82] text-white text-sm font-semibold px-5 py-3 rounded-xl hover:bg-[#3d9e71] transition-colors shadow-lg shadow-[#4CAF82]/20"
+                  className="flex items-center gap-2 bg-[#c1f148] text-[#1a2a00] text-sm font-semibold px-5 py-3 rounded-xl hover:bg-[#9dc93a] transition-colors shadow-lg shadow-[#c1f148]/20"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.18 }}

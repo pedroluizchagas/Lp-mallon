@@ -13,13 +13,13 @@ function AppStoreButton({ store }: { store: 'apple' | 'google' }) {
   return (
     <motion.a
       href="#"
-      className="inline-flex items-center gap-2.5 bg-white/7 border border-white/10 hover:border-[#4CAF82]/35 hover:bg-white/10 text-[#EDF7F2] px-4 py-2.5 rounded-xl transition-colors duration-200"
+      className="inline-flex items-center gap-2.5 bg-white/7 border border-white/10 hover:border-[#c1f148]/35 hover:bg-white/10 text-[#f8f9f6] px-4 py-2.5 rounded-xl transition-colors duration-200"
       whileHover={{ scale: 1.04, y: -2 }}
       whileTap={{ scale: 0.97 }}
       transition={{ duration: 0.18 }}
     >
       {isApple ? (
-        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-[#EDF7F2] shrink-0">
+        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-[#f8f9f6] shrink-0">
           <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
         </svg>
       ) : (
@@ -31,10 +31,10 @@ function AppStoreButton({ store }: { store: 'apple' | 'google' }) {
         </svg>
       )}
       <div className="text-left">
-        <p className="text-[10px] text-[#EDF7F2]/30 leading-none">
+        <p className="text-[10px] text-[#f8f9f6]/30 leading-none">
           {isApple ? 'Download na' : 'Disponível no'}
         </p>
-        <p className="text-sm font-semibold text-[#EDF7F2] leading-tight mt-0.5">
+        <p className="text-sm font-semibold text-[#f8f9f6] leading-tight mt-0.5">
           {isApple ? 'App Store' : 'Google Play'}
         </p>
       </div>
@@ -95,7 +95,7 @@ export default function ConsumerHero() {
 
   return (
     <div ref={containerRef} style={{ height: '200vh' }}>
-      <section className="sticky top-0 h-screen overflow-hidden bg-[#050807]">
+      <section className="sticky top-0 h-screen overflow-hidden bg-[#0B0F0D]">
 
         {/* ── Imagem de fundo com parallax ─────────────────────────────── */}
         <motion.div
@@ -115,7 +115,7 @@ export default function ConsumerHero() {
               1. base escura — garante contraste mínimo
               2. vinheta top-bottom — topo e base mais escuros
               3. toque verde — integra a imagem no design system          */}
-          <div className="absolute inset-0 bg-[#050807]/58" />
+          <div className="absolute inset-0 bg-[#0B0F0D]/58" />
           <div
             className="absolute inset-0"
             style={{
@@ -146,7 +146,7 @@ export default function ConsumerHero() {
           transition={{ duration: 0.6, delay: 1.0 }}
         >
           <div className="h-px w-8 bg-white/10" />
-          <span className="text-[#EDF7F2]/18 text-[10px] font-mono tracking-[0.25em]">
+          <span className="text-[#f8f9f6]/18 text-[10px] font-mono tracking-[0.25em]">
             04°53′S 44°19′O
           </span>
           <div className="h-px w-8 bg-white/10" />
@@ -166,14 +166,14 @@ export default function ConsumerHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.0, ease: EASE }}
         >
-          <p className="flex items-center gap-2 text-[#EDF7F2]/25 text-[10px] tracking-[0.22em] uppercase mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#4CAF82] shadow-[0_0_8px_rgba(76,175,130,1)]" />
+          <p className="flex items-center gap-2 text-[#f8f9f6]/25 text-[10px] tracking-[0.22em] uppercase mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#c1f148] shadow-[0_0_8px_rgba(193,241,72,1)]" />
             Disponível agora · Divinópolis, MG
           </p>
-          <h2 className="font-jakarta font-bold text-2xl sm:text-3xl lg:text-[1.9rem] text-[#EDF7F2] leading-[1.1] tracking-tight">
+          <h2 className="font-jakarta font-bold text-2xl sm:text-3xl lg:text-[1.9rem] text-[#f8f9f6] leading-[1.1] tracking-tight">
             O delivery que<br />
             Divinópolis<br />
-            <em className="not-italic text-[#4CAF82]">merecia.</em>
+            <em className="not-italic text-[#c1f148]">merecia.</em>
           </h2>
         </motion.div>
 
@@ -189,10 +189,10 @@ export default function ConsumerHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.0, delay: 0.12, ease: EASE }}
         >
-          <p className="text-[#EDF7F2]/40 text-base sm:text-[1.05rem] leading-tight font-medium">
+          <p className="text-[#f8f9f6]/40 text-base sm:text-[1.05rem] leading-tight font-medium">
             Para<br />Consumidores—
           </p>
-          <p className="text-[#EDF7F2]/18 text-[10px] font-mono tracking-wider mt-3">
+          <p className="text-[#f8f9f6]/18 text-[10px] font-mono tracking-wider mt-3">
             v1.0 · 2025
           </p>
         </motion.div>
@@ -226,7 +226,7 @@ export default function ConsumerHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.32, ease: EASE }}
         >
-          <p className="flex items-center gap-2 text-[#EDF7F2]/30 text-xs">
+          <p className="flex items-center gap-2 text-[#f8f9f6]/30 text-xs">
             <span className="w-2 h-2 rounded-full bg-[#FF5C3A]" />
             Mais de 100 lojas locais na palma da sua mão
           </p>
@@ -245,14 +245,14 @@ export default function ConsumerHero() {
           transition={{ duration: 1.1, delay: 0.06, ease: EASE }}
         >
           <span
-            className="font-jakarta font-black leading-[0.80] tracking-[-0.03em] text-[#EDF7F2] whitespace-nowrap pb-3 sm:pb-4"
+            className="font-jakarta font-black leading-[0.80] tracking-[-0.03em] text-[#f8f9f6] whitespace-nowrap pb-3 sm:pb-4"
             style={{ fontSize: '23vw' }}
           >
-            Mall<span className="text-[#4CAF82]">evo</span>
+            Mall<span className="text-[#c1f148]">evo</span>
           </span>
 
           <motion.span
-            className="absolute text-[#EDF7F2]/22 font-light"
+            className="absolute text-[#f8f9f6]/22 font-light"
             style={{
               fontSize: '1.5vw',
               right: '3.2vw',
@@ -264,7 +264,7 @@ export default function ConsumerHero() {
         </motion.div>
 
         {/* ── Vinheta inferior ─────────────────────────────────────────── */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-[#050807] to-transparent pointer-events-none z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-[#0B0F0D] to-transparent pointer-events-none z-10" />
 
       </section>
     </div>

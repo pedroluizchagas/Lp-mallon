@@ -53,7 +53,7 @@ export default function CustomCursor() {
     <div className="hidden lg:block pointer-events-none">
       {/* Dot */}
       <motion.div
-        className="fixed z-[9999] rounded-full bg-[#4CAF82]"
+        className="fixed z-[9999] rounded-full bg-[#c1f148]"
         style={{
           x: dotX,
           y: dotY,
@@ -70,7 +70,7 @@ export default function CustomCursor() {
 
       {/* Ring */}
       <motion.div
-        className="fixed z-[9998] rounded-full border border-[#4CAF82]"
+        className="fixed z-[9998] rounded-full border border-[#c1f148]"
         style={{
           x: ringX,
           y: ringY,
@@ -81,7 +81,7 @@ export default function CustomCursor() {
           width: hovering ? 44 : 32,
           height: hovering ? 44 : 32,
           opacity: hovering ? 0.6 : 0.25,
-          borderColor: hovering ? '#4CAF82' : 'rgba(76,175,130,0.4)',
+          borderColor: hovering ? '#c1f148' : 'rgba(193,241,72,0.4)',
         }}
         transition={{ duration: 0.2 }}
       />

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Instagram, MessageCircle, Mail, MapPin } from 'lucide-react'
 
@@ -29,33 +30,34 @@ export default function ConsumerFooter() {
 
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/consumidor" className="inline-flex items-center gap-2.5 mb-5">
-              <div className="w-8 h-8 rounded-xl bg-[#4CAF82] flex items-center justify-center">
-                <span className="font-jakarta font-bold text-white text-sm">M</span>
-              </div>
-              <span className="font-jakarta font-bold text-[#EDF7F2] text-lg">
-                Mall<span className="text-[#4CAF82]">evo</span>
-              </span>
+            <Link href="/consumidor" className="inline-block mb-5" aria-label="Mallevo">
+              <Image
+                src="/images/logos/logoGreen.png"
+                alt="Mallevo"
+                width={180}
+                height={29}
+                className="h-8 w-auto"
+              />
             </Link>
-            <p className="text-[#EDF7F2]/35 text-sm leading-relaxed mb-6 max-w-xs">
+            <p className="text-[#f8f9f6]/35 text-sm leading-relaxed mb-6 max-w-xs">
               O shopping digital de Divinópolis, MG. Conectando pessoas às melhores lojas locais.
             </p>
             <div className="flex items-center gap-2.5">
               <a
                 href="#"
                 aria-label="Instagram"
-                className="w-9 h-9 rounded-xl bg-white/6 hover:bg-[#4CAF82]/15 border border-white/6 hover:border-[#4CAF82]/20 flex items-center justify-center transition-all duration-200"
+                className="w-9 h-9 rounded-xl bg-white/6 hover:bg-[#c1f148]/15 border border-white/6 hover:border-[#c1f148]/20 flex items-center justify-center transition-all duration-200"
               >
-                <Instagram size={16} className="text-[#EDF7F2]/50" />
+                <Instagram size={16} className="text-[#f8f9f6]/50" />
               </a>
               <a
                 href="https://wa.me/5537999999999"
                 aria-label="WhatsApp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/6 hover:bg-[#4CAF82]/15 border border-white/6 hover:border-[#4CAF82]/20 flex items-center justify-center transition-all duration-200"
+                className="w-9 h-9 rounded-xl bg-white/6 hover:bg-[#c1f148]/15 border border-white/6 hover:border-[#c1f148]/20 flex items-center justify-center transition-all duration-200"
               >
-                <MessageCircle size={16} className="text-[#EDF7F2]/50" />
+                <MessageCircle size={16} className="text-[#f8f9f6]/50" />
               </a>
             </div>
           </div>
@@ -63,7 +65,7 @@ export default function ConsumerFooter() {
           {/* Links */}
           {Object.entries(footerLinks).map(([group, items]) => (
             <div key={group}>
-              <h3 className="font-jakarta font-semibold text-[10px] uppercase tracking-[0.18em] text-[#EDF7F2]/25 mb-5">
+              <h3 className="font-jakarta font-semibold text-[10px] uppercase tracking-[0.18em] text-[#f8f9f6]/25 mb-5">
                 {group}
               </h3>
               <ul className="flex flex-col gap-3">
@@ -71,7 +73,7 @@ export default function ConsumerFooter() {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-[#EDF7F2]/40 hover:text-[#EDF7F2] text-sm transition-colors duration-150"
+                      className="text-[#f8f9f6]/40 hover:text-[#f8f9f6] text-sm transition-colors duration-150"
                     >
                       {item.label}
                     </Link>
@@ -83,22 +85,22 @@ export default function ConsumerFooter() {
 
           {/* Contato */}
           <div>
-            <h3 className="font-jakarta font-semibold text-[10px] uppercase tracking-[0.18em] text-[#EDF7F2]/25 mb-5">
+            <h3 className="font-jakarta font-semibold text-[10px] uppercase tracking-[0.18em] text-[#f8f9f6]/25 mb-5">
               Contato
             </h3>
             <ul className="flex flex-col gap-4">
               <li className="flex items-start gap-3">
-                <Mail size={14} className="text-[#4CAF82] mt-0.5 shrink-0" />
+                <Mail size={14} className="text-[#c1f148] mt-0.5 shrink-0" />
                 <a
                   href="mailto:contato@mallevo.com.br"
-                  className="text-[#EDF7F2]/40 hover:text-[#EDF7F2] text-sm transition-colors duration-150"
+                  className="text-[#f8f9f6]/40 hover:text-[#f8f9f6] text-sm transition-colors duration-150"
                 >
                   contato@mallevo.com.br
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin size={14} className="text-[#4CAF82] mt-0.5 shrink-0" />
-                <span className="text-[#EDF7F2]/40 text-sm">Divinópolis, MG</span>
+                <MapPin size={14} className="text-[#c1f148] mt-0.5 shrink-0" />
+                <span className="text-[#f8f9f6]/40 text-sm">Divinópolis, MG</span>
               </li>
             </ul>
           </div>
@@ -118,7 +120,7 @@ export default function ConsumerFooter() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2
-            className="font-jakarta font-bold select-none leading-none tracking-tight text-[#EDF7F2]/4 whitespace-nowrap"
+            className="font-jakarta font-bold select-none leading-none tracking-tight text-[#f8f9f6]/4 whitespace-nowrap"
             style={{ fontSize: 'clamp(5rem, 18vw, 16rem)' }}
           >
             Mallevo
@@ -127,21 +129,21 @@ export default function ConsumerFooter() {
 
         {/* Subtle center glow */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-100 h-50 bg-[#4CAF82]/4 rounded-full blur-[80px]" />
+          <div className="w-100 h-50 bg-[#c1f148]/4 rounded-full blur-[80px]" />
         </div>
       </div>
 
       {/* Bottom bar */}
       <div className="border-t border-white/5 px-4 sm:px-8 py-5">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[#EDF7F2]/20 text-xs text-center sm:text-left">
+          <p className="text-[#f8f9f6]/20 text-xs text-center sm:text-left">
             © 2026 Mallevo. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-[#EDF7F2]/20 hover:text-[#EDF7F2]/50 text-xs transition-colors">
+            <a href="#" className="text-[#f8f9f6]/20 hover:text-[#f8f9f6]/50 text-xs transition-colors">
               Termos de uso
             </a>
-            <a href="#" className="text-[#EDF7F2]/20 hover:text-[#EDF7F2]/50 text-xs transition-colors">
+            <a href="#" className="text-[#f8f9f6]/20 hover:text-[#f8f9f6]/50 text-xs transition-colors">
               Privacidade
             </a>
           </div>

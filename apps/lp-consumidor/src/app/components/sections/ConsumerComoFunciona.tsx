@@ -10,24 +10,24 @@ const steps = [
     Icon: Download,
     title: 'Baixe o app',
     desc: 'Disponível na App Store e Google Play. Crie sua conta em menos de 1 minuto, sem burocracia.',
-    accentColor: '#4CAF82',
-    borderHover: 'hover:border-[#4CAF82]/30',
+    accentColor: '#c1f148',
+    borderHover: 'hover:border-[#c1f148]/30',
   },
   {
     num: '02',
     Icon: Search,
     title: 'Escolha o que quiser',
     desc: 'Explore restaurantes, mercados, farmácias e muito mais de lojas reais de Divinópolis.',
-    accentColor: '#F5A623',
-    borderHover: 'hover:border-[#F5A623]/30',
+    accentColor: '#c1f148',
+    borderHover: 'hover:border-[#c1f148]/30',
   },
   {
     num: '03',
     Icon: MapPin,
     title: 'Peça e acompanhe',
     desc: 'Pague com cartão ou PIX e rastreie seu pedido ao vivo no mapa enquanto aguarda.',
-    accentColor: '#4CAF82',
-    borderHover: 'hover:border-[#4CAF82]/30',
+    accentColor: '#c1f148',
+    borderHover: 'hover:border-[#c1f148]/30',
   },
 ]
 
@@ -40,7 +40,7 @@ export default function ConsumerComoFunciona() {
         <div className="mb-20">
           {/* Section number + rule */}
           <AnimatedSection className="flex items-center gap-4 mb-8" direction="none">
-            <span className="font-jakarta font-bold text-sm tracking-[0.2em] text-[#4CAF82]/40">01</span>
+            <span className="font-jakarta font-bold text-sm tracking-[0.2em] text-[#c1f148]/40">01</span>
             <motion.div
               className="flex-1 h-px bg-linear-to-r from-white/8 to-transparent"
               initial={{ scaleX: 0, originX: 0 }}
@@ -60,7 +60,7 @@ export default function ConsumerComoFunciona() {
               />
             </div>
             <AnimatedSection direction="none" delay={0.3}>
-              <p className="text-[#EDF7F2]/40 text-sm leading-relaxed max-w-sm">
+              <p className="text-[#f8f9f6]/40 text-sm leading-relaxed max-w-sm">
                 Em 3 passos você já está pedindo dos melhores estabelecimentos de Divinópolis.
               </p>
             </AnimatedSection>
@@ -116,10 +116,10 @@ export default function ConsumerComoFunciona() {
                       </div>
 
                       {/* Text */}
-                      <h3 className="font-jakarta font-bold text-xl text-[#EDF7F2] mb-3 leading-snug">
+                      <h3 className="font-jakarta font-bold text-xl text-[#f8f9f6] mb-3 leading-snug">
                         {title}
                       </h3>
-                      <p className="text-[#EDF7F2]/45 text-sm leading-relaxed">{desc}</p>
+                      <p className="text-[#f8f9f6]/45 text-sm leading-relaxed">{desc}</p>
                     </div>
                   </motion.div>
                 </StaggerItem>
@@ -133,7 +133,7 @@ export default function ConsumerComoFunciona() {
           {[0, 1].map((i) => (
             <div key={i} className="flex items-center gap-4 flex-1">
               <div className="flex-1 h-px bg-linear-to-r from-white/20 to-white/5" />
-              <div className="w-1.5 h-1.5 rounded-full bg-[#4CAF82]/60" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#c1f148]/60" />
               <div className="flex-1 h-px bg-linear-to-r from-white/5 to-white/20" />
             </div>
           ))}

@@ -48,12 +48,12 @@ export default function ConsumerScrollText() {
       className="relative bg-[#0B0F0D] py-32 lg:py-52 overflow-hidden"
     >
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#4CAF82]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#c1f148]/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Label */}
         <motion.p
-          className="text-[#4CAF82]/40 text-[10px] font-semibold uppercase tracking-[0.25em] mb-10"
+          className="text-[#c1f148]/40 text-[10px] font-semibold uppercase tracking-[0.25em] mb-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -83,7 +83,7 @@ export default function ConsumerScrollText() {
 
         {/* Bottom line */}
         <motion.div
-          className="mt-16 h-px bg-linear-to-r from-[#4CAF82]/20 via-white/8 to-transparent"
+          className="mt-16 h-px bg-linear-to-r from-[#c1f148]/20 via-white/8 to-transparent"
           initial={{ scaleX: 0, originX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true, margin: '-100px' }}

@@ -36,12 +36,12 @@ function MarqueeItem({ icon, label, highlight }: { icon: string; label: string; 
       <span className="text-2xl">{icon}</span>
       <span
         className={`font-jakarta font-semibold text-xl whitespace-nowrap tracking-tight ${
-          highlight ? 'text-[#4CAF82]' : 'text-[#EDF7F2]/30'
+          highlight ? 'text-[#c1f148]' : 'text-[#f8f9f6]/30'
         }`}
       >
         {label}
       </span>
-      <span className="text-[#EDF7F2]/10 text-2xl mx-4 select-none">·</span>
+      <span className="text-[#f8f9f6]/10 text-2xl mx-4 select-none">·</span>
     </div>
   )
 }

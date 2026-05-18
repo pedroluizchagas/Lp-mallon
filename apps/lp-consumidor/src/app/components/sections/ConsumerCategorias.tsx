@@ -6,7 +6,7 @@ import { AnimatedSection, StaggerItem, HeadingReveal, LabelReveal } from '@malle
 const categories = [
   { emoji: '🍕', label: 'Pizzas', count: '12 lojas', glow: 'rgba(249,115,22,0.12)' },
   { emoji: '🛒', label: 'Mercados', count: '8 lojas', glow: 'rgba(59,130,246,0.12)' },
-  { emoji: '💊', label: 'Farmácias', count: '5 lojas', glow: 'rgba(76,175,130,0.12)' },
+  { emoji: '💊', label: 'Farmácias', count: '5 lojas', glow: 'rgba(193,241,72,0.12)' },
   { emoji: '🍔', label: 'Lanches', count: '18 lojas', glow: 'rgba(234,179,8,0.12)' },
   { emoji: '🐾', label: 'Pet Shop', count: '4 lojas', glow: 'rgba(168,85,247,0.12)' },
   { emoji: '☕', label: 'Cafés', count: '7 lojas', glow: 'rgba(180,83,9,0.15)' },
@@ -22,7 +22,7 @@ export default function ConsumerCategorias() {
         {/* Header */}
         <div className="mb-20">
           <AnimatedSection className="flex items-center gap-4 mb-8" direction="none">
-            <span className="font-jakarta font-bold text-sm tracking-[0.2em] text-[#4CAF82]/40">02</span>
+            <span className="font-jakarta font-bold text-sm tracking-[0.2em] text-[#c1f148]/40">02</span>
             <motion.div
               className="flex-1 h-px bg-linear-to-r from-white/8 to-transparent"
               initial={{ scaleX: 0, originX: 0 }}
@@ -45,7 +45,7 @@ export default function ConsumerCategorias() {
               />
             </div>
             <AnimatedSection direction="none" delay={0.3}>
-              <p className="text-[#EDF7F2]/40 text-sm leading-relaxed max-w-xs">
+              <p className="text-[#f8f9f6]/40 text-sm leading-relaxed max-w-xs">
                 Mais de 100 estabelecimentos locais disponíveis para entrega em Divinópolis.
               </p>
             </AnimatedSection>
@@ -77,8 +77,8 @@ export default function ConsumerCategorias() {
                     >
                       {cat.emoji}
                     </motion.div>
-                    <p className="font-jakarta font-semibold text-[#EDF7F2] text-sm">{cat.label}</p>
-                    <p className="text-[#EDF7F2]/30 text-xs mt-1">{cat.count}</p>
+                    <p className="font-jakarta font-semibold text-[#f8f9f6] text-sm">{cat.label}</p>
+                    <p className="text-[#f8f9f6]/30 text-xs mt-1">{cat.count}</p>
                   </div>
                 </motion.button>
               </StaggerItem>
@@ -89,13 +89,13 @@ export default function ConsumerCategorias() {
         {/* "Ver todas" CTA */}
         <AnimatedSection delay={0.3} className="flex justify-center mt-12">
           <motion.button
-            className="group flex items-center gap-2 text-[#4CAF82] text-sm font-semibold border border-[#4CAF82]/20 rounded-xl px-6 py-3 hover:bg-[#4CAF82]/8 transition-colors overflow-hidden relative"
+            className="group flex items-center gap-2 text-[#c1f148] text-sm font-semibold border border-[#c1f148]/20 rounded-xl px-6 py-3 hover:bg-[#c1f148]/8 transition-colors overflow-hidden relative"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             <span className="relative z-10">Ver todas as categorias</span>
             <motion.span
-              className="text-[#4CAF82]/50 text-lg leading-none relative z-10"
+              className="text-[#c1f148]/50 text-lg leading-none relative z-10"
               whileHover={{ x: 4 }}
               transition={{ duration: 0.2 }}
             >

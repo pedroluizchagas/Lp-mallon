@@ -47,11 +47,11 @@ export default function ConsumerNavbar() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link href="/consumidor" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-xl bg-[#4CAF82] flex items-center justify-center shadow-lg shadow-[#4CAF82]/25">
+              <div className="w-8 h-8 rounded-xl bg-[#c1f148] flex items-center justify-center shadow-lg shadow-[#c1f148]/25">
                 <span className="font-jakarta font-bold text-white text-sm leading-none">M</span>
               </div>
-              <span className="font-jakarta font-bold text-[#EDF7F2] text-lg tracking-tight">
-                Mall<span className="text-[#4CAF82]">evo</span>
+              <span className="font-jakarta font-bold text-[#f8f9f6] text-lg tracking-tight">
+                Mall<span className="text-[#c1f148]">evo</span>
               </span>
             </Link>
 
@@ -61,14 +61,14 @@ export default function ConsumerNavbar() {
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className="text-[#EDF7F2]/50 hover:text-[#EDF7F2] text-sm font-medium transition-colors cursor-pointer"
+                  className="text-[#f8f9f6]/50 hover:text-[#f8f9f6] text-sm font-medium transition-colors cursor-pointer"
                 >
                   {link.label}
                 </button>
               ))}
               <Link
                 href="/lojista"
-                className="text-[#EDF7F2]/50 hover:text-[#EDF7F2] text-sm font-medium transition-colors"
+                className="text-[#f8f9f6]/50 hover:text-[#f8f9f6] text-sm font-medium transition-colors"
               >
                 Para lojistas
               </Link>
@@ -78,7 +78,7 @@ export default function ConsumerNavbar() {
             <div className="hidden lg:flex items-center gap-3">
               <motion.a
                 href="#baixar-app"
-                className="flex items-center gap-2 bg-[#4CAF82] text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#3d9e71] transition-colors shadow-lg shadow-[#4CAF82]/20"
+                className="flex items-center gap-2 bg-[#c1f148] text-[#1a2a00] text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#9dc93a] transition-colors shadow-lg shadow-[#c1f148]/20"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={(e) => { e.preventDefault(); scrollTo('#baixar-app') }}
@@ -90,7 +90,7 @@ export default function ConsumerNavbar() {
 
             {/* Mobile hamburger */}
             <button
-              className="lg:hidden text-[#EDF7F2]/70 hover:text-[#EDF7F2] p-2 rounded-lg transition-colors"
+              className="lg:hidden text-[#f8f9f6]/70 hover:text-[#f8f9f6] p-2 rounded-lg transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Abrir menu"
             >
@@ -119,12 +119,12 @@ export default function ConsumerNavbar() {
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             >
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
-                <span className="font-jakarta font-bold text-[#EDF7F2] text-lg">
-                  Mall<span className="text-[#4CAF82]">evo</span>
+                <span className="font-jakarta font-bold text-[#f8f9f6] text-lg">
+                  Mall<span className="text-[#c1f148]">evo</span>
                 </span>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="text-[#EDF7F2]/50 hover:text-[#EDF7F2] transition-colors"
+                  className="text-[#f8f9f6]/50 hover:text-[#f8f9f6] transition-colors"
                   aria-label="Fechar menu"
                 >
                   <X size={20} />
@@ -136,7 +136,7 @@ export default function ConsumerNavbar() {
                   <motion.button
                     key={link.href}
                     onClick={() => scrollTo(link.href)}
-                    className="text-[#EDF7F2]/60 hover:text-[#EDF7F2] hover:bg-white/5 text-left px-4 py-3 rounded-xl text-sm font-medium transition-colors w-full"
+                    className="text-[#f8f9f6]/60 hover:text-[#f8f9f6] hover:bg-white/5 text-left px-4 py-3 rounded-xl text-sm font-medium transition-colors w-full"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.06 }}
@@ -151,7 +151,7 @@ export default function ConsumerNavbar() {
                 >
                   <Link
                     href="/lojista"
-                    className="block text-[#EDF7F2]/60 hover:text-[#EDF7F2] hover:bg-white/5 px-4 py-3 rounded-xl text-sm font-medium transition-colors"
+                    className="block text-[#f8f9f6]/60 hover:text-[#f8f9f6] hover:bg-white/5 px-4 py-3 rounded-xl text-sm font-medium transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     Para lojistas
@@ -162,7 +162,7 @@ export default function ConsumerNavbar() {
               <div className="p-6 border-t border-white/[0.06]">
                 <a
                   href="#baixar-app"
-                  className="flex items-center justify-center gap-2 bg-[#4CAF82] text-white font-semibold text-sm px-5 py-3.5 rounded-xl w-full hover:bg-[#3d9e71] transition-colors"
+                  className="flex items-center justify-center gap-2 bg-[#c1f148] text-[#1a2a00] font-semibold text-sm px-5 py-3.5 rounded-xl w-full hover:bg-[#9dc93a] transition-colors"
                   onClick={(e) => { e.preventDefault(); scrollTo('#baixar-app') }}
                 >
                   Baixar app

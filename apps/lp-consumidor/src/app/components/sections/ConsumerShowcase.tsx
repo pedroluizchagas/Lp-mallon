@@ -42,7 +42,7 @@ const tiles = [
     sublabel: '60+ parceiros',
     emoji: '🍕',
     gradient: 'from-[#0D2016] to-[#1A4D3A]',
-    accent: '#4CAF82',
+    accent: '#c1f148',
     delay: 0.08,
   },
   {
@@ -52,7 +52,7 @@ const tiles = [
     sublabel: 'Entrega em 40min',
     emoji: '🛒',
     gradient: 'from-[#1A1008] to-[#3D2A00]',
-    accent: '#F5A623',
+    accent: '#c1f148',
     delay: 0.16,
   },
   {
@@ -176,8 +176,8 @@ export default function ConsumerShowcase() {
   const labelOpacity = useTransform(scrollYProgress, [0.02, 0.18], [0, 1])
 
   return (
-    <div ref={containerRef} style={{ height: '280vh' }} className="relative bg-[#050807]">
-      <section className="sticky top-0 h-screen overflow-hidden bg-[#050807]">
+    <div ref={containerRef} style={{ height: '280vh' }} className="relative bg-[#0B0F0D]">
+      <section className="sticky top-0 h-screen overflow-hidden bg-[#0B0F0D]">
 
         {/* ── Grain ────────────────────────────────────────────────────── */}
         <div className="absolute inset-0 noise-overlay opacity-[0.04] pointer-events-none z-30" />
@@ -238,7 +238,7 @@ export default function ConsumerShowcase() {
               />
 
               {/* Overlay escuro */}
-              <div className="absolute inset-0 bg-[#050807]/50" />
+              <div className="absolute inset-0 bg-[#0B0F0D]/50" />
               <div
                 className="absolute inset-0"
                 style={{
@@ -257,8 +257,8 @@ export default function ConsumerShowcase() {
               >
                 {/* Label acima do texto */}
                 <div className="flex items-center gap-2 mb-5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4CAF82]" />
-                  <span className="text-[#4CAF82] text-[10px] font-semibold tracking-[0.2em] uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#c1f148]" />
+                  <span className="text-[#c1f148] text-[10px] font-semibold tracking-[0.2em] uppercase">
                     Mallevo · Divinópolis
                   </span>
                 </div>
@@ -268,10 +268,10 @@ export default function ConsumerShowcase() {
                   {textLines.map((line, i) => (
                     <div key={i} className="overflow-hidden">
                       <motion.p
-                        className={`font-jakarta font-black leading-[0.92] tracking-tight text-[#EDF7F2] whitespace-nowrap ${
+                        className={`font-jakarta font-black leading-[0.92] tracking-tight text-[#f8f9f6] whitespace-nowrap ${
                           i < 2
                             ? 'text-[clamp(2rem,5.5vw,4.5rem)]'
-                            : 'text-[clamp(1rem,2.5vw,2rem)] text-[#EDF7F2]/50 font-medium'
+                            : 'text-[clamp(1rem,2.5vw,2rem)] text-[#f8f9f6]/50 font-medium'
                         }`}
                         initial={{ y: '100%' }}
                         style={{ opacity: textOpacity }}
@@ -295,7 +295,7 @@ export default function ConsumerShowcase() {
                 {/* Rodapé do painel */}
                 <div className="mt-4 flex items-center justify-between">
                   <span className="text-white/25 text-xs font-mono">100+ lojas · Divinópolis, MG</span>
-                  <span className="text-[#4CAF82] text-xs font-semibold">Disponível agora →</span>
+                  <span className="text-[#c1f148] text-xs font-semibold">Disponível agora →</span>
                 </div>
               </motion.div>
 
@@ -321,7 +321,7 @@ export default function ConsumerShowcase() {
         </div>
 
         {/* ── Vinheta inferior ─────────────────────────────────────────── */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-[#050807] to-transparent pointer-events-none z-20" />
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-[#0B0F0D] to-transparent pointer-events-none z-20" />
 
       </section>
     </div>

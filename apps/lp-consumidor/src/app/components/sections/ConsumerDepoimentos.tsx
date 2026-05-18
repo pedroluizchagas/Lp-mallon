@@ -34,7 +34,7 @@ function Stars({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <span key={i} className="text-[#F5A623] text-base">★</span>
+        <span key={i} className="text-[#c1f148] text-base">★</span>
       ))}
     </div>
   )
@@ -48,7 +48,7 @@ export default function ConsumerDepoimentos() {
         {/* Header */}
         <div className="mb-20">
           <AnimatedSection className="flex items-center gap-4 mb-8" direction="none">
-            <span className="font-jakarta font-bold text-sm tracking-[0.2em] text-[#4CAF82]/40">04</span>
+            <span className="font-jakarta font-bold text-sm tracking-[0.2em] text-[#c1f148]/40">04</span>
             <motion.div
               className="flex-1 h-px bg-linear-to-r from-white/8 to-transparent"
               initial={{ scaleX: 0, originX: 0 }}
@@ -74,10 +74,10 @@ export default function ConsumerDepoimentos() {
             {/* Rating badge */}
             <AnimatedSection direction="none" delay={0.25}>
               <div className="flex items-center gap-4 bg-[#111714] border border-white/[0.07] rounded-2xl px-6 py-4 self-start lg:self-auto">
-                <span className="font-jakarta font-bold text-4xl text-[#EDF7F2]">4.8</span>
+                <span className="font-jakarta font-bold text-4xl text-[#f8f9f6]">4.8</span>
                 <div>
                   <Stars count={5} />
-                  <p className="text-[#EDF7F2]/40 text-xs mt-1">baseado em avaliações</p>
+                  <p className="text-[#f8f9f6]/40 text-xs mt-1">baseado em avaliações</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -92,14 +92,14 @@ export default function ConsumerDepoimentos() {
                 <motion.div
                   className={`group relative h-full flex flex-col rounded-3xl p-8 border transition-colors duration-300 ${
                     t.highlight
-                      ? 'bg-linear-to-br from-[#0F2318] to-[#111714] border-[#4CAF82]/20 hover:border-[#4CAF82]/40'
+                      ? 'bg-linear-to-br from-[#0F2318] to-[#111714] border-[#c1f148]/20 hover:border-[#c1f148]/40'
                       : 'bg-[#111714] border-white/[0.07] hover:border-white/15'
                   }`}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 >
                   {t.highlight && (
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#4CAF82]/8 rounded-full blur-2xl pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#c1f148]/8 rounded-full blur-2xl pointer-events-none" />
                   )}
 
                   <div className="relative flex-1 flex flex-col">
@@ -109,10 +109,10 @@ export default function ConsumerDepoimentos() {
                     </div>
 
                     {/* Quote mark */}
-                    <div className="text-[#4CAF82]/15 font-jakarta font-bold text-6xl leading-none mb-2 select-none">&ldquo;</div>
+                    <div className="text-[#c1f148]/15 font-jakarta font-bold text-6xl leading-none mb-2 select-none">&ldquo;</div>
 
                     {/* Quote */}
-                    <p className="text-[#EDF7F2]/65 text-sm leading-relaxed flex-1 mb-6">
+                    <p className="text-[#f8f9f6]/65 text-sm leading-relaxed flex-1 mb-6">
                       {t.text}
                     </p>
 
@@ -125,8 +125,8 @@ export default function ConsumerDepoimentos() {
                         {t.avatar}
                       </div>
                       <div>
-                        <p className="text-[#EDF7F2] font-semibold text-sm leading-tight">{t.name}</p>
-                        <p className="text-[#EDF7F2]/35 text-xs mt-0.5">{t.role}</p>
+                        <p className="text-[#f8f9f6] font-semibold text-sm leading-tight">{t.name}</p>
+                        <p className="text-[#f8f9f6]/35 text-xs mt-0.5">{t.role}</p>
                       </div>
                     </div>
                   </div>
