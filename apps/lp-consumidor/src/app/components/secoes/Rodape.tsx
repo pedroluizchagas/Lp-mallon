@@ -77,7 +77,7 @@ export function Rodape({ naHome = true }: { naHome?: boolean }) {
         <div className="mt-20 grid items-end gap-10 lg:mt-28 lg:grid-cols-12">
           <p
             aria-hidden
-            className="text-[clamp(60px,13.4vw,238px)] font-semibold leading-[0.82] tracking-[-0.06em] text-white lg:col-span-8"
+            className="text-[clamp(56px,9vw,150px)] font-semibold leading-[0.82] tracking-[-0.06em] text-white lg:col-span-8"
           >
             Divinópolis<span className="text-accent">.</span>
           </p>
