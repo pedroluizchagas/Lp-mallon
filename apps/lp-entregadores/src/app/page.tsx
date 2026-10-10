@@ -1,53 +1,67 @@
-import { Navbar, Footer } from '@mallevo/ui'
-import EntregadorHero from './components/sections/EntregadorHero'
-import EntregadorBeneficios from './components/sections/EntregadorBeneficios'
-import EntregadorComoFunciona from './components/sections/EntregadorComoFunciona'
-import EntregadorAppPreview from './components/sections/EntregadorAppPreview'
-import EntregadorGanhos from './components/sections/EntregadorGanhos'
-import EntregadorFaq from './components/sections/EntregadorFaq'
-import EntregadorCta from './components/sections/EntregadorCta'
+import { Suspense } from 'react'
+import { Abertura } from './components/secoes/Abertura'
+import { Cabecalho } from './components/secoes/Cabecalho'
+import { Chamada } from './components/secoes/Chamada'
+import { Comecar } from './components/secoes/Comecar'
+import { EntregaAoVivo } from './components/secoes/EntregaAoVivo'
+import { Folha } from './components/secoes/Folha'
+import { Ganhos } from './components/secoes/Ganhos'
+import { Manifesto } from './components/secoes/Manifesto'
+import { Marquise } from './components/secoes/Marquise'
+import { Oferta } from './components/secoes/Oferta'
+import { Perguntas } from './components/secoes/Perguntas'
+import { Rodape } from './components/secoes/Rodape'
+import { SeuJeito } from './components/secoes/SeuJeito'
 
-export default function EntregadoresPage() {
+/**
+ * A landing do entregador é a rua, com o vocabulário do app dele: a rota
+ * acende, a marquise mostra o Início com o modo online e a oferta chegando,
+ * o manifesto desenha o caminho do balcão até a porta e a folha clara sobe
+ * — a oferta por dentro, uma entrega inteira, os ganhos, o que vale para
+ * todo mundo, o cadastro e as perguntas — até a mesma rota, agora para
+ * quem lê.
+ *
+ * Cada seção abaixo da dobra fica no próprio <Suspense>: nada suspende no
+ * servidor (o HTML sai inteiro), mas a hidratação vira várias tarefas
+ * curtas em vez de uma longa.
+ */
+export default function Pagina() {
   return (
     <>
-      <Navbar
-        links={[
-          { label: 'Benefícios', href: '#beneficios' },
-          { label: 'Como funciona', href: '#como-funciona' },
-          { label: 'Ganhos', href: '#ganhos' },
-          { label: 'FAQ', href: '#faq' },
-        ]}
-        ctaLabel="Quero ser entregador"
-        ctaUrl={process.env.NEXT_PUBLIC_CADASTRO_URL ?? 'https://app.mallevo.com.br/entregador/cadastro'}
-      />
+      <Abertura />
+      <Cabecalho />
       <main>
-        <EntregadorHero />
-        <EntregadorBeneficios />
-        <EntregadorComoFunciona />
-        <EntregadorAppPreview />
-        <EntregadorGanhos />
-        <EntregadorFaq />
-        <EntregadorCta />
+        <Marquise />
+        <Suspense>
+          <Manifesto />
+        </Suspense>
+        <Folha>
+          <Suspense>
+            <Oferta />
+          </Suspense>
+          <Suspense>
+            <EntregaAoVivo />
+          </Suspense>
+          <Suspense>
+            <Ganhos />
+          </Suspense>
+          <Suspense>
+            <SeuJeito />
+          </Suspense>
+          <Suspense>
+            <Comecar />
+          </Suspense>
+          <Suspense>
+            <Perguntas />
+          </Suspense>
+        </Folha>
+        <Suspense>
+          <Chamada />
+        </Suspense>
       </main>
-      <Footer
-        columns={[
-          {
-            title: 'Entregadores',
-            links: [
-              { label: 'Como funciona', href: '#como-funciona' },
-              { label: 'Quanto posso ganhar', href: '#ganhos' },
-              { label: 'Perguntas frequentes', href: '#faq' },
-            ],
-          },
-          {
-            title: 'Plataforma',
-            links: [
-              { label: 'Para consumidores', href: 'https://mallevo.com.br' },
-              { label: 'Para parceiros', href: 'https://parceiros.mallevo.com.br' },
-            ],
-          },
-        ]}
-      />
+      <Suspense>
+        <Rodape />
+      </Suspense>
     </>
   )
 }

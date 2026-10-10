@@ -1,8 +1,10 @@
 import type { MetadataRoute } from 'next'
 
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://entregadores.mallevo.com.br'
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: '*', allow: '/' },
-    sitemap: 'https://entregadores.mallevo.com.br/sitemap.xml',
+    sitemap: `${SITE}/sitemap.xml`,
   }
 }
