@@ -580,23 +580,6 @@ export const REELS: Reel[] = [
   },
 ]
 
-/** Conversa ao vivo: as falas e respostas do lib/comentarios.ts do app. */
-export const COMENTARIOS = [
-  { autor: 'Ana Clara', texto: 'Isso ficou muito bom' },
-  { autor: 'Rafa', texto: 'Vocês entregam no Bom Pastor?' },
-  { autor: 'Juliana M.', texto: 'Melhor da cidade, sem exagero' },
-  { autor: 'Téo', texto: 'Já quero' },
-  { autor: 'Bruna S.', texto: 'Salvando pra depois' },
-  { autor: 'loja', texto: 'Entregamos sim! Qualquer coisa chama no direct.' },
-  { autor: 'Marcos V.', texto: 'Fui semana passada e amei' },
-  { autor: 'Lud', texto: 'Que capricho, gente' },
-  { autor: 'Ricardo A.', texto: 'Comprei ontem, recomendo demais' },
-  { autor: 'Paty', texto: 'Abre domingo?' },
-  { autor: 'loja', texto: 'Ficamos felizes! Hoje ainda tem, é só passar.' },
-  { autor: 'Gui', texto: 'Preço justo pelo que entrega' },
-  { autor: 'Camila R.', texto: 'Tô indo agora' },
-]
-
 // ─── Pedido ao vivo ───────────────────────────────────────────────────
 
 export type StatusPedido =

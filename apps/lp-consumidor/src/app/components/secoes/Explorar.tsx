@@ -6,9 +6,9 @@ import { Sobrelinha } from '../ui/Sobrelinha'
 
 const RECURSOS: { icone: ConsumerIconName; titulo: string; texto: string }[] = [
   {
-    icone: 'comment',
-    titulo: 'Comentários ao vivo',
-    texto: 'Pergunte se entrega no seu bairro. A loja responde ali mesmo, na conversa.',
+    icone: 'send',
+    titulo: 'Mande para alguém',
+    texto: 'Compartilhe o post com quem vai dividir o pedido com você.',
   },
   {
     icone: 'heart',
@@ -29,8 +29,8 @@ const RECURSOS: { icone: ConsumerIconName; titulo: string; texto: string }[] = [
 
 /**
  * Explorar — os reels das lojas. Um painel de vídeo dentro da folha (a tela
- * escura do app emoldurada no salão claro), com o celular no modo
- * comentários: a conversa ao vivo rolando.
+ * escura do app emoldurada no salão claro), com o celular rolando o feed
+ * sozinho, um post depois do outro.
  */
 export function Explorar() {
   return (
@@ -56,7 +56,7 @@ export function Explorar() {
             <BlurIn delay={0.1}>
               <p className="mt-8 max-w-[520px] text-[clamp(16px,1.25vw,18px)] leading-[1.65] text-white/66">
                 No Explorar, as próprias lojas mostram o que estão fazendo agora: o burger saindo da chapa, o buquê
-                montado de manhã, o banho e tosa do dia. Comente, pergunte, curta — e peça sem sair do vídeo.
+                montado de manhã, o banho e tosa do dia. Curta, siga, compartilhe — e peça sem sair do vídeo.
               </p>
             </BlurIn>
             <ul className="mt-12 grid gap-x-8 gap-y-8 sm:grid-cols-2">
@@ -81,7 +81,7 @@ export function Explorar() {
             />
             <BlurIn y={40}>
               <Celular
-                rotulo="O Explorar do app Mallevo em modo comentários: o vídeo da Burger House DV com a conversa ao vivo e a resposta da loja."
+                rotulo="O Explorar do app Mallevo: o feed de posts das lojas da cidade, com o produto de cada post a um toque da sacola."
                 className="[--k:0.7] sm:[--k:0.78] xl:[--k:0.84]"
               >
                 <TelaExplorar />
