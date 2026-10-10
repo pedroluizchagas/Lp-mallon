@@ -1,9 +1,8 @@
 import { URLS } from '@mallevo/brand'
 
 /**
- * Destinos externos da landing. Lojas de apps, redes e páginas legais só
- * aparecem quando a URL existe de verdade (variável de ambiente) — sem
- * botão apontando para "#".
+ * Destinos da landing. Lojas de apps e redes só aparecem quando a URL existe
+ * de verdade (variável de ambiente) — sem botão apontando para "#".
  */
 export const LINKS = {
   appStore: process.env.NEXT_PUBLIC_APP_STORE_URL || null,
@@ -12,8 +11,10 @@ export const LINKS = {
   entregadores: URLS.ENTREGADORES_URL,
   email: process.env.NEXT_PUBLIC_CONTATO_EMAIL || 'contato@mallevo.com.br',
   instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || null,
-  termos: process.env.NEXT_PUBLIC_TERMOS_URL || null,
-  privacidade: process.env.NEXT_PUBLIC_PRIVACIDADE_URL || null,
+  // Os documentos moram aqui mesmo (/termos, /privacidade) — o app abre
+  // essas URLs em Perfil › Ajuda. A variável só existe para apontar outro lugar.
+  termos: process.env.NEXT_PUBLIC_TERMOS_URL || '/termos',
+  privacidade: process.env.NEXT_PUBLIC_PRIVACIDADE_URL || '/privacidade',
 } as const
 
 /** Seções da página (âncoras do cabeçalho, do menu e do rodapé). */

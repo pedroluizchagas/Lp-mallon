@@ -1,6 +1,7 @@
 'use client'
 
-import { NOME_DA_FASE, dois, eventosSolares, formatarMinuto, luzNoMinuto, useAgora } from '../../lib/divinopolis'
+import { NOME_DA_FASE, dois, eventosSolares, formatarMinuto, luzNoMinuto } from '../../lib/divinopolis'
+import { useAgora } from '../../lib/useAgora'
 
 /** A hora de Divinópolis, a fase da luz e o sol de hoje — ao vivo, no rodapé. */
 export function RelogioDaCidade() {

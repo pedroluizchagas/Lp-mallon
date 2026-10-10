@@ -1,9 +1,11 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { EASE, cn, useLenis } from '@mallevo/ui'
-import { dois, luzNoMinuto, eventosSolares, NOME_DA_FASE, useAgora } from '../../lib/divinopolis'
+import { dois, luzNoMinuto, eventosSolares, NOME_DA_FASE } from '../../lib/divinopolis'
+import { useAgora } from '../../lib/useAgora'
 import { LINKS, SECOES } from '../../lib/links'
 import { ConsumerIcon } from '../marca/ConsumerIcon'
 import { Logo } from '../marca/Logo'
@@ -22,6 +24,9 @@ export function Cabecalho() {
   const lenis = useLenis()
   const agora = useAgora(1000)
   const botaoMenu = useRef<HTMLButtonElement>(null)
+  // Fora da home (termos, privacidade) as âncoras apontam para a home.
+  const naHome = usePathname() === '/'
+  const base = naHome ? '' : '/'
 
   useEffect(() => {
     let quadro = 0
@@ -69,7 +74,10 @@ export function Cabecalho() {
     // Espera a cortina do menu recolher antes de rolar.
     window.setTimeout(() => {
       const alvo = document.getElementById(id)
-      if (!alvo) return
+      if (!alvo) {
+        window.location.assign(`/#${id}`)
+        return
+      }
       if (lenis) lenis.scrollTo(alvo, { offset: -72, duration: 1.6 })
       else alvo.scrollIntoView({ behavior: 'smooth' })
     }, 380)
@@ -114,8 +122,8 @@ export function Cabecalho() {
           </div>
 
           <a
-            href="#topo"
-            aria-label="Mallevo — voltar ao topo"
+            href={naHome ? '#topo' : '/'}
+            aria-label={naHome ? 'Mallevo — voltar ao topo' : 'Mallevo — página inicial'}
             className="relative col-start-1 h-6 w-[152px] justify-self-start md:col-start-2 md:h-7 md:w-[177px] md:justify-self-center"
           >
             <Logo tom="branco" prioridade className={cn('absolute inset-0 h-full w-auto transition-opacity duration-500', claro ? 'opacity-0' : 'opacity-100')} />
@@ -124,7 +132,7 @@ export function Cabecalho() {
 
           <div className="col-start-3 flex items-center justify-end gap-2.5">
             <a
-              href="#baixar"
+              href={`${base}#baixar`}
               className={cn(
                 'hidden h-10 items-center gap-2 rounded-full px-5 text-[13.5px] font-bold transition-colors duration-500 sm:inline-flex',
                 claro ? 'bg-ink text-white hover:bg-surface-dark' : 'bg-accent text-ink hover:bg-accent-strong',

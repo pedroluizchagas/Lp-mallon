@@ -3,15 +3,8 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { BlurIn, RevealLines, cn } from '@mallevo/ui'
-import {
-  COR_DA_FASE,
-  NOME_DA_FASE,
-  comAlfa,
-  eventosSolares,
-  formatarMinuto,
-  luzNoMinuto,
-  useAgora,
-} from '../../lib/divinopolis'
+import { COR_DA_FASE, NOME_DA_FASE, comAlfa, eventosSolares, formatarMinuto, luzNoMinuto } from '../../lib/divinopolis'
+import { useAgora } from '../../lib/useAgora'
 import { Celular } from '../app/Celular'
 import { TelaInicio } from '../app/TelaInicio'
 import { Sobrelinha } from '../ui/Sobrelinha'

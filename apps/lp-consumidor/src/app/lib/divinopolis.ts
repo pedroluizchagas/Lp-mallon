@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-
 /**
  * A hora e a luz de Divinópolis — não as do visitante.
  *
@@ -206,20 +204,4 @@ export function dois(n: number) {
 export function comAlfa(hex: string, alfa: number) {
   const n = parseInt(hex.slice(1), 16)
   return `rgb(${(n >> 16) & 0xff} ${(n >> 8) & 0xff} ${n & 0xff} / ${Math.max(0, Math.min(1, alfa)).toFixed(3)})`
-}
-
-/**
- * O instante atual em Divinópolis, atualizado a cada `passoMs`. Devolve
- * null no servidor e no primeiro render — a hora só existe no navegador
- * (sem divergência de hidratação; o HTML mostra "--:--").
- */
-export function useAgora(passoMs = 1000): Agora | null {
-  const [agora, setAgora] = useState<Agora | null>(null)
-  useEffect(() => {
-    const atualizar = () => setAgora(agoraEmDivinopolis())
-    atualizar()
-    const relogio = setInterval(atualizar, passoMs)
-    return () => clearInterval(relogio)
-  }, [passoMs])
-  return agora
 }

@@ -1,3 +1,4 @@
+import { EMPRESA } from '../../dados/empresa'
 import { LINKS, SECOES } from '../../lib/links'
 import { ConsumerIcon } from '../marca/ConsumerIcon'
 import { Logo } from '../marca/Logo'
@@ -6,7 +7,8 @@ import { RelogioDaCidade } from './RelogioDaCidade'
 const ANO = new Date().getFullYear()
 
 /** Rodapé — a cidade em letra grande e a hora dela, ao vivo. */
-export function Rodape() {
+export function Rodape({ naHome = true }: { naHome?: boolean }) {
+  const base = naHome ? '' : '/'
   return (
     <footer data-tema="escuro" className="relative z-20 overflow-hidden bg-marquee text-white">
       <div
@@ -27,7 +29,7 @@ export function Rodape() {
             <ul className="mt-5 space-y-3 text-[15px] font-medium">
               {SECOES.map((secao) => (
                 <li key={secao.id}>
-                  <a href={`#${secao.id}`} className="sublinha text-white/75 transition-colors hover:text-white">
+                  <a href={`${base}#${secao.id}`} className="sublinha text-white/75 transition-colors hover:text-white">
                     {secao.rotulo}
                   </a>
                 </li>
@@ -85,7 +87,9 @@ export function Rodape() {
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-[13px] text-white/55 md:flex-row md:items-center md:justify-between">
-          <p>© {ANO} Mallevo · Feito em Divinópolis, MG</p>
+          <p>
+            © {ANO} Mallevo · {EMPRESA.nome} (MEI) · CNPJ {EMPRESA.cnpj} · Feito em Divinópolis, MG
+          </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {LINKS.termos && (
               <a href={LINKS.termos} className="sublinha hover:text-white/80">
