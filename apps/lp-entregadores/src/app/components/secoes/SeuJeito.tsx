@@ -9,16 +9,15 @@ const VEICULOS = [
   { id: 'moto', rotulo: 'Moto', placa: true },
   { id: 'bicicleta', rotulo: 'Bicicleta', placa: false },
   { id: 'carro', rotulo: 'Carro', placa: true },
-  { id: 'a_pe', rotulo: 'A pé', placa: false },
 ] as const
 
 type Veiculo = (typeof VEICULOS)[number]['id']
 
 /**
  * Do seu jeito — o que vale para todo entregador, em cartões: o interruptor
- * do modo online (de verdade: o visitante liga e desliga), os quatro
- * veículos do cadastro, o pagamento no app, a localização só durante a
- * entrega e o cadastro gratuito.
+ * do modo online (de verdade: o visitante liga e desliga), os veículos do
+ * cadastro, o pagamento no app, a localização só durante a entrega e o
+ * cadastro gratuito.
  */
 export function SeuJeito() {
   const [online, setOnline] = useState(true)
@@ -118,7 +117,7 @@ export function SeuJeito() {
             <article className="flex h-full flex-col rounded-[32px] bg-white p-7 ring-1 ring-ink/[0.05] md:p-9">
               <p className="micro text-ink-muted">Seu veículo</p>
               <h3 className="mt-4 text-[26px] font-semibold leading-tight tracking-[-0.03em] text-ink">
-                Moto, bicicleta, carro ou a pé.
+                Moto, bicicleta ou carro.
               </h3>
               <div className="mt-6 flex flex-wrap gap-2.5" role="radiogroup" aria-label="Tipo de veículo">
                 {VEICULOS.map((v) => (

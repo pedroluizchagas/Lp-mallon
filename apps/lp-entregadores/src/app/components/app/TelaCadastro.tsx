@@ -12,6 +12,9 @@ const ROTULO = 'mb-[8px] text-[13px] font-semibold uppercase tracking-[0.4px] te
  * com a barra de etapas no topo — conta, dados pessoais, veículo,
  * documentos — e, depois do envio, "Cadastro em análise"
  * (aguardando-aprovacao.tsx), que confere o status sozinha a cada 15 s.
+ *
+ * O app ainda oferece "A pé" na etapa do veículo; a opção sai daqui porque
+ * o Mallevo não vai mantê-la.
  */
 export function TelaCadastro({ etapa }: { etapa: EtapaCadastro }) {
   return (
@@ -55,7 +58,7 @@ function Etapa({ etapa }: { etapa: 1 | 2 | 3 | 4 }) {
           <Titulo titulo="Seu veículo" sub="Informe como você fará as entregas." />
           <p className={ROTULO}>Tipo de veículo</p>
           <div className="mb-[28px] flex flex-wrap gap-[10px]">
-            {['Moto', 'Bicicleta', 'Carro', 'A pé'].map((v) => (
+            {['Moto', 'Bicicleta', 'Carro'].map((v) => (
               <span
                 key={v}
                 className={cn(

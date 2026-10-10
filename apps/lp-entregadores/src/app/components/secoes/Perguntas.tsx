@@ -29,12 +29,12 @@ const PERGUNTAS: { pergunta: string; resposta: string }[] = [
   },
   {
     pergunta: 'Que veículo posso usar?',
-    resposta: 'Moto, bicicleta, carro ou a pé. A placa só é pedida para moto e carro.',
+    resposta: 'Moto, bicicleta ou carro. A placa só é pedida para moto e carro.',
   },
   {
     pergunta: 'Preciso de CNH?',
     resposta:
-      'Hoje, sim: o cadastro pede o número da CNH para todos os veículos, inclusive bicicleta e a pé. A foto da CNH é opcional.',
+      'Hoje, sim: o cadastro pede o número da CNH para todos os veículos, inclusive bicicleta. A foto da CNH é opcional.',
   },
   {
     pergunta: 'Vou lidar com dinheiro ou troco?',

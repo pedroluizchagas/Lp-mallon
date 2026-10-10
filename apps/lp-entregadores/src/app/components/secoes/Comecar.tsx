@@ -27,10 +27,10 @@ const PASSOS: Passo[] = [
   {
     titulo: 'Seus dados e o veículo',
     texto: 'Nome, CPF e um telefone com WhatsApp. Depois, como você vai entregar — e a placa, se for de moto ou de carro.',
-    itens: ['Nome, CPF e WhatsApp', 'Moto, bicicleta, carro ou a pé', 'Placa só para moto e carro'],
+    itens: ['Nome, CPF e WhatsApp', 'Moto, bicicleta ou carro', 'Placa só para moto e carro'],
     escuro: false,
     tela: 3,
-    rotulo: 'Etapa 3 de 4 do cadastro no app: escolher o veículo entre moto, bicicleta, carro e a pé.',
+    rotulo: 'Etapa 3 de 4 do cadastro no app: escolher o veículo entre moto, bicicleta e carro.',
   },
   {
     titulo: 'Documentos e foto',

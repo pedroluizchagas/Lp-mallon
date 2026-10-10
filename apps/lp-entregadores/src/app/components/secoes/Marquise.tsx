@@ -192,7 +192,7 @@ export function Marquise() {
             </li>
             <li className="flex items-center gap-2">
               <CourierIcon name="route" size={17} className="text-accent" />
-              Moto, bicicleta, carro ou a pé
+              Moto, bicicleta ou carro
             </li>
           </ul>
         </motion.div>
