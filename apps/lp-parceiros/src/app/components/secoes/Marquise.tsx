@@ -169,8 +169,7 @@ export function Marquise() {
             style={{ ['--d' as string]: '0.34s' }}
           >
             Abra sua loja no shopping digital de Divinópolis: vitrine com a cara dela, posts no Explorar e os
-            pedidos chegando ao vivo, com som e aviso — no app e no painel. A comissão é fixa: R$ 1,00 por pedido,
-            sem porcentagem.
+            pedidos chegando ao vivo, com som e aviso — no app e no painel. A comissão é de 9,1% por pedido.
           </p>
 
           <div className="entra-bloco mt-10 flex flex-wrap items-center gap-3" style={{ ['--d' as string]: '0.44s' }}>
@@ -206,7 +205,7 @@ export function Marquise() {
           >
             <li className="flex items-center gap-2">
               <PartnerIcon name="cash" size={17} className="text-accent" />
-              R$ 1,00 por pedido
+              9,1% de comissão
             </li>
             <li className="flex items-center gap-2">
               <PartnerIcon name="store" size={17} className="text-accent" />

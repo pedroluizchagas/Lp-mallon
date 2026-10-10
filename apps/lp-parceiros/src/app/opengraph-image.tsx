@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { ImageResponse } from 'next/og'
 
-export const alt = 'Mallevo para lojistas — Sua loja, ao vivo no shopping. Comissão fixa de R$ 1,00 por pedido.'
+export const alt = 'Mallevo para lojistas — Sua loja, ao vivo no shopping. Comissão de 9,1% por pedido.'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -69,7 +69,7 @@ export default async function Image() {
             color: 'rgba(255,255,255,0.66)',
           }}
         >
-          <span>R$ 1,00 por pedido · sem porcentagem</span>
+          <span>Comissão de 9,1% por pedido</span>
           <span>parceiros.mallevo.com.br</span>
         </div>
       </div>

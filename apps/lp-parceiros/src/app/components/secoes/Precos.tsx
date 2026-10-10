@@ -9,20 +9,20 @@ import { PartnerIcon } from '../marca/PartnerIcon'
 import { Botao } from '../ui/Botao'
 import { Sobrelinha } from '../ui/Sobrelinha'
 
-/** A comissão do Mallevo por pedido (create-pagarme-order: PLATFORM_FEE_CENTAVOS). */
-const COMISSAO = 100
+/** A comissão do Mallevo sobre cada pedido, em %. */
+const COMISSAO = 9.1
 
 const PARA_TODOS = [
-  'Comissão de R$ 1,00 por pedido, em qualquer valor',
+  'Comissão de 9,1% por pedido, em todos os planos',
   '15 dias de teste — o cadastro não pede cartão',
   'Vitrine, endereço na web, Explorar, app e painel',
 ]
 
 /**
- * Quanto custa — a comissão que não cresce com o pedido. O simulador faz a
- * conta com os números do próprio visitante (inclusive o percentual que ele
- * paga hoje): mensalidade do plano + R$ 1,00 por pedido, sem esconder o caso
- * em que o percentual sai mais barato. Os planos vêm do banco (lib/planos).
+ * Quanto custa — uma comissão de um dígito. O simulador faz a conta com os
+ * números do próprio visitante (inclusive o percentual que ele paga hoje):
+ * mensalidade do plano + 9,1% de cada pedido, sem esconder o caso em que o
+ * outro percentual sai mais barato. Os planos vêm do banco (lib/planos).
  */
 export function Precos({ planos }: { planos: Plano[] | null }) {
   return (
@@ -37,19 +37,19 @@ export function Precos({ planos }: { planos: Plano[] | null }) {
               lines={[
                 'Uma comissão',
                 <span key="acesa" className="italic">
-                  <span className="marca-texto">que não cresce.</span>
+                  <span className="marca-texto">de um dígito.</span>
                 </span>,
               ]}
             />
           </div>
           <div className="lg:col-span-4 lg:col-start-9">
             <p className="text-[clamp(72px,7.6vw,128px)] font-semibold leading-none tracking-[-0.06em] text-ink">
-              R$&nbsp;1<span className="text-[0.42em] tracking-[-0.03em]">,00</span>
+              9,1<span className="text-[0.5em] tracking-[-0.03em]">%</span>
             </p>
             <BlurIn delay={0.1}>
               <p className="mt-6 text-[17px] leading-[1.65] text-ink-muted">
-                Por pedido pago — seja ele de R$ 20 ou de R$ 200. Sem porcentagem sobre a sua venda: o pedido maior não
-                paga comissão maior.
+                Sobre cada pedido pago — menos de um décimo da venda. Além dela, só a mensalidade do plano que você
+                escolher: sem taxa de adesão.
               </p>
             </BlurIn>
           </div>
@@ -141,9 +141,9 @@ function Simulador({ planos }: { planos: Plano[] | null }) {
   const grupo = useId()
 
   const plano = planos?.[indicePlano] ?? null
-  const comissoes = pedidos * COMISSAO
-  const mallevo = (plano?.precoMensal ?? 0) + comissoes
   const vendas = pedidos * ticket * 100
+  const comissoes = Math.round((vendas * COMISSAO) / 100)
+  const mallevo = (plano?.precoMensal ?? 0) + comissoes
   const percentualMes = Math.round((vendas * percentual) / 100)
   const diferenca = percentualMes - mallevo
 
@@ -227,7 +227,7 @@ function Simulador({ planos }: { planos: Plano[] | null }) {
               <p className="mt-4 text-[clamp(28px,2.6vw,40px)] font-semibold tabular-nums tracking-[-0.04em]">{reais(mallevo)}</p>
               <p className="mt-1 text-[13px] text-white/55">
                 {plano ? `${reais(plano.precoMensal)} do plano + ` : ''}
-                {reais(comissoes)} em comissões
+                {reais(comissoes)} de comissão (9,1%)
               </p>
             </div>
           </div>
@@ -241,26 +241,28 @@ function Simulador({ planos }: { planos: Plano[] | null }) {
                   <span className="text-[0.4em] tracking-[-0.02em]"> por mês</span>
                 </p>
                 <p className="mt-3 text-[14.5px] font-medium text-ink/70">
-                  É o que deixa de sair em comissão, com {pedidos.toLocaleString('pt-BR')} pedidos de {reais(ticket * 100)}.
+                  É o que deixa de sair para a plataforma, com {pedidos.toLocaleString('pt-BR')} pedidos de {reais(ticket * 100)}.
                 </p>
               </>
             ) : (
               <>
-                <p className="micro">Com esse volume</p>
+                <p className="micro">{percentual <= COMISSAO ? 'Com a sua comissão de hoje' : 'Com esse volume'}</p>
                 <p className="mt-3 text-[clamp(24px,2.2vw,32px)] font-semibold leading-tight tracking-[-0.03em]">
                   {diferenca === 0
                     ? 'As duas contas empatam.'
-                    : `O percentual sai ${reais(-diferenca)} mais barato por mês.`}
+                    : `A comissão de ${percentual}% sai ${reais(-diferenca)} mais barata por mês.`}
                 </p>
                 <p className="mt-3 text-[14.5px] font-medium text-ink/70">
-                  A comissão fixa compensa conforme os pedidos e o valor deles crescem — mexa nos números.
+                  {percentual <= COMISSAO
+                    ? 'Ela já fica abaixo dos 9,1% do Mallevo — aqui a conta não fecha a nosso favor.'
+                    : 'A mensalidade é fixa: quanto mais a loja vende, menos ela pesa — mexa nos números.'}
                 </p>
               </>
             )}
           </div>
 
           <p className="mt-5 text-[12.5px] leading-relaxed text-white/55">
-            Simulação com os números que você informou. No Mallevo, o custo é a mensalidade do plano mais R$ 1,00 por
+            Simulação com os números que você informou. No Mallevo, o custo é a mensalidade do plano mais 9,1% de cada
             pedido; as tarifas do meio de pagamento (Pagar.me) ficam fora da conta.
           </p>
         </div>

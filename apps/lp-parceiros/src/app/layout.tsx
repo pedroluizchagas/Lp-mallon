@@ -49,7 +49,7 @@ const nunito = Nunito({ subsets: ['latin'], variable: '--ff-nunito', display: 's
 const fontes = [jakarta, mono, inter, archivo, anton, cormorant, manrope, nunito].map((f) => f.variable).join(' ')
 
 const DESCRICAO =
-  'Sua loja no shopping digital de Divinópolis: vitrine com a cara dela, endereço próprio na web, posts no Explorar e pedidos ao vivo no app e no painel. Comissão fixa de R$ 1,00 por pedido, sem porcentagem.'
+  'Sua loja no shopping digital de Divinópolis: vitrine com a cara dela, endereço próprio na web, posts no Explorar e pedidos ao vivo no app e no painel. Comissão de 9,1% por pedido.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://parceiros.mallevo.com.br'),
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     'vender online Divinópolis',
     'lojista Divinópolis',
     'delivery para lojas Divinópolis',
-    'comissão fixa por pedido',
+    'comissão para lojistas',
     'shopping digital Divinópolis',
   ],
   alternates: { canonical: '/' },
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Mallevo para lojistas — Sua loja, ao vivo no shopping.',
-    description: 'Vitrine própria, pedido ao vivo e R$ 1,00 por pedido. O shopping digital de Divinópolis.',
+    description: 'Vitrine própria, pedido ao vivo e comissão de 9,1%. O shopping digital de Divinópolis.',
   },
   robots: { index: true, follow: true },
 }

@@ -24,7 +24,7 @@ const ETAPAS: Etapa[] = [
   {
     titulo: 'Ative os recebimentos',
     texto:
-      'É a conta onde a sua parte de cada venda cai. A Pagar.me verifica os dados, e a partir daí o cliente paga no app com Pix ou cartão — a comissão de R$ 1,00 já sai separada no pagamento.',
+      'É a conta onde a sua parte de cada venda cai. A Pagar.me verifica os dados, e a partir daí o cliente paga no app com Pix ou cartão — a comissão de 9,1% já sai separada no pagamento.',
     itens: ['Verificação pela Pagar.me', 'Pix ou cartão em até 12x para o cliente', 'Saldo disponível e a receber no painel'],
     escuro: false,
     visual: <VisualRecebimentos />,

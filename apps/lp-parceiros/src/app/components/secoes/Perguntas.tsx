@@ -16,12 +16,12 @@ function perguntas(planos: Plano[] | null): { pergunta: string; resposta: React.
       pergunta: 'Quanto custa vender no Mallevo?',
       resposta: `A mensalidade do plano que você escolhe no cadastro${
         menor ? ` (a partir de ${reais(menor)} por mês)` : ''
-      }, mais R$ 1,00 por pedido pago — sem porcentagem sobre a venda. Os primeiros 15 dias são de teste, e o cadastro não pede cartão.`,
+      }, mais 9,1% de comissão sobre cada pedido pago. Os primeiros 15 dias são de teste, e o cadastro não pede cartão.`,
     },
     {
       pergunta: 'Tem alguma outra taxa?',
       resposta:
-        'A comissão do Mallevo é só o R$ 1,00 por pedido. O pagamento do cliente é processado pela Pagar.me, e as tarifas do meio de pagamento saem da sua parte da venda. A taxa de entrega é você quem define — e quem paga é o cliente.',
+        'A comissão do Mallevo é de 9,1% por pedido. O pagamento do cliente é processado pela Pagar.me, e as tarifas do meio de pagamento saem da sua parte da venda. A taxa de entrega é você quem define — e quem paga é o cliente.',
     },
     {
       pergunta: 'Como eu recebo o dinheiro das vendas?',

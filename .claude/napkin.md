@@ -52,7 +52,7 @@
    Do instead: medidas em pontos do app (390×844) dentro de `components/app/Celular` (escala por `--k`); painel web em `components/painel/Navegador` (1240×780, mesma escala). Ícones = porte 1:1 (`ConsumerIcon` na lp-consumidor, `PartnerIcon` na lp-parceiros — nada de Lucide nem emoji). Conteúdo do mock do app: `dados/shopping.ts` (consumidor) e `dados/balcao.ts`/`vitrines.ts`/`painel.ts` (lojista; status e rótulos de `mobile-partner/lib/status-pedido.ts` e `@mallevo/lib`). Sem nota, contagem de lojas ou depoimento inventado.
 
 4. **[2026-10-10] Landing de lojista só promete o que o código faz — conferir antes de escrever**
-   Do instead: valem R$ 1,00 por pedido, 15 dias de teste sem cartão, `{slug}.mallevo.com.br`, 21 estilos/18 vitrines, 6 modelos de painel, Pix e cartão até 12x. Não prometer: push do lojista, curtidas/comentários, avaliações/mensagens, entregador próprio, D+7/D+2, retirada, multiloja. Cadastro = `app.mallevo.com.br/onboarding` (`/cadastro` dá 404); dados da empresa = `EMPRESA` de `@mallevo/brand`.
+   Do instead: valem comissão de 9,1% por pedido (decisão do usuário em 2026-10-10 — o código do Mall-online ainda cobra R$ 1,00 fixo), 15 dias de teste sem cartão, `{slug}.mallevo.com.br`, 21 estilos/18 vitrines, 6 modelos de painel, Pix e cartão até 12x. Não prometer: push do lojista, curtidas/comentários, avaliações/mensagens, entregador próprio, D+7/D+2, retirada, multiloja. Cadastro = `app.mallevo.com.br/onboarding` (`/cadastro` dá 404); dados da empresa = `EMPRESA` de `@mallevo/brand`.
 
 5. **[2026-05-05] Each lp-* app runs on a separate port: lp-consumidor=3000, lp-parceiros=3001, lp-entregadores=3002**
    Do instead: check `package.json` scripts for the specific `--port` flag before assuming a port.

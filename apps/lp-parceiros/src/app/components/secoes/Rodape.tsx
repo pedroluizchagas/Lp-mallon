@@ -26,8 +26,8 @@ export function Rodape() {
           <div className="lg:col-span-4">
             <Logo tom="branco" className="h-8 w-auto" />
             <p className="mt-5 max-w-[32ch] text-[15px] leading-relaxed text-white/55">
-              O shopping digital de Divinópolis, do lado de dentro do balcão. Vitrine própria, pedido ao vivo e R$ 1,00
-              por pedido.
+              O shopping digital de Divinópolis, do lado de dentro do balcão. Vitrine própria, pedido ao vivo e
+              comissão de 9,1%.
             </p>
           </div>
 
