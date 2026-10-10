@@ -55,7 +55,7 @@ export function Manifesto() {
 
   if (reduce) {
     return (
-      <section id="manifesto" data-tema="escuro" className="relative bg-marquee px-5 py-28 md:px-8">
+      <section id="manifesto" data-tema="escuro" className="relative bg-marquee px-5 pb-[calc(30vh+7rem)] pt-28 md:px-8">
         <div className="mx-auto max-w-[1180px] text-center">
           <Sobrelinha aoVivo className="justify-center">
             Vitrine própria

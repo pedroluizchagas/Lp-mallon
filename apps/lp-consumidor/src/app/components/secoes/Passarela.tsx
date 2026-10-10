@@ -84,7 +84,7 @@ export function Passarela() {
       ref={ref}
       id="passarela"
       data-tema="escuro"
-      className={cn('relative bg-marquee', reduce ? 'px-5 py-28 text-center md:px-8' : 'h-[300vh]')}
+      className={cn('relative bg-marquee', reduce ? 'px-5 pb-[calc(30vh+7rem)] pt-28 text-center md:px-8' : 'h-[300vh]')}
     >
       {reduce ? (
         <>
