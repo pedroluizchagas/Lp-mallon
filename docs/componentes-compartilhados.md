@@ -220,6 +220,47 @@ import { Footer } from '@mallevo/ui'
 
 ---
 
+## Movimento
+
+Primitivos de animação no estilo das landing pages Framer (rolagem com inércia, títulos revelados, texto que acende com a rolagem, pilha de cards). As curvas são as do app (`EASE.entrada` = `cubic-bezier(0.16, 1, 0.3, 1)`). Todos respeitam `prefers-reduced-motion`.
+
+| Export | O que faz |
+|--------|-----------|
+| `SmoothScroll` / `useLenis()` | Rolagem com inércia (Lenis) na página inteira + `MotionConfig reducedMotion="user"`. Vai no `layout.tsx`; `anchorOffset` = altura do cabeçalho fixo |
+| `RevealLines` | Cada linha do título sobe de dentro da própria máscara, em cascata |
+| `ScrollWords` | O texto acende palavra a palavra conforme a rolagem |
+| `BlurIn` | Bloco entra desfocado e assenta nítido |
+| `Parallax` | Conteúdo atravessa a tela em velocidade própria |
+| `Counter` | Número de odômetro (cada dígito é uma fita 0–9) |
+| `Magnetic` | Elemento atraído pelo cursor (só mouse) |
+| `StackedCards` | Cards fixos que se empilham com a rolagem; os de trás encolhem e escurecem |
+| `useSafeReducedMotion()` | `prefers-reduced-motion` só depois de montar — use no lugar do `useReducedMotion` do framer quando a preferência mudar a ÁRVORE (evita erro de hidratação) |
+| `EASE`, `DURATION` | Curvas e durações da casa |
+
+```tsx
+// layout.tsx
+import { SmoothScroll } from '@mallevo/ui'
+
+<body>
+  <SmoothScroll anchorOffset={72}>{children}</SmoothScroll>
+</body>
+
+// seção
+import { RevealLines, BlurIn, StackedCards } from '@mallevo/ui'
+
+<RevealLines as="h2" lines={['Cada loja', <em key="a">com a sua cara.</em>]} />
+<BlurIn delay={0.1}><p>…</p></BlurIn>
+<StackedCards cardClassName="rounded-[40px]">{cards}</StackedCards>
+```
+
+**Armadilhas conhecidas:**
+
+- `IntersectionObserver` desconta o recorte do pai: um elemento escondido por `overflow: hidden` + `translateY` nunca "entra na tela". Por isso o `RevealLines` observa o bloco, não a linha.
+- Animação CSS com `fill-mode: both` que termina em `transform`/`filter` prende o valor final e anula o `style` do framer no mesmo elemento — separe em wrappers (um com a animação CSS, outro com o motion value).
+- `filter: blur(0)` residual isola o `backdrop-filter` dos filhos: termine animações de desfoque em `filter: none` (o `BlurIn` faz isso com `transitionEnd`).
+
+---
+
 ## Utilitários
 
 ### `cn()`

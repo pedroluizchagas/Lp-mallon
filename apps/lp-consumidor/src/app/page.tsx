@@ -1,31 +1,69 @@
-import CustomCursor from './components/sections/CustomCursor'
-import ConsumerStickyHeader from './components/sections/ConsumerStickyHeader'
-import ConsumerHero from './components/sections/ConsumerHero'
-import ConsumerMarquee from './components/sections/ConsumerMarquee'
-import ConsumerScrollText from './components/sections/ConsumerScrollText'
-import ConsumerComoFunciona from './components/sections/ConsumerComoFunciona'
-import ConsumerCategorias from './components/sections/ConsumerCategorias'
-import ConsumerApp from './components/sections/ConsumerApp'
-import ConsumerDepoimentos from './components/sections/ConsumerDepoimentos'
-import ConsumerCta from './components/sections/ConsumerCta'
-import ConsumerFooter from './components/sections/ConsumerFooter'
+import { Suspense } from 'react'
+import { Abertura } from './components/secoes/Abertura'
+import { Cabecalho } from './components/secoes/Cabecalho'
+import { Chamada } from './components/secoes/Chamada'
+import { Diretorio } from './components/secoes/Diretorio'
+import { Explorar } from './components/secoes/Explorar'
+import { Folha } from './components/secoes/Folha'
+import { LuzDoDia } from './components/secoes/LuzDoDia'
+import { Marquise } from './components/secoes/Marquise'
+import { ParaTodos } from './components/secoes/ParaTodos'
+import { Passarela } from './components/secoes/Passarela'
+import { PedidoAoVivo } from './components/secoes/PedidoAoVivo'
+import { Perguntas } from './components/secoes/Perguntas'
+import { Rodape } from './components/secoes/Rodape'
+import { Vitrines } from './components/secoes/Vitrines'
 
-export default function ConsumerPage() {
+/**
+ * A landing é um passeio pelo shopping, com o vocabulário do app: chega-se
+ * pela fachada acesa (marquise), a folha clara sobe e o visitante entra —
+ * pisos, vitrines, Explorar, o pedido ao vivo, a luz da cidade — e sai pela
+ * mesma marquise, agora com o shopping no bolso.
+ *
+ * Cada seção abaixo da dobra fica no próprio <Suspense>: nada suspende no
+ * servidor (o HTML sai inteiro), mas a hidratação vira várias tarefas
+ * curtas em vez de uma longa — o React cede o fio principal entre elas.
+ */
+export default function Pagina() {
   return (
-    <div className="dark-page hide-cursor bg-[#0B0F0D] min-h-screen">
-      <CustomCursor />
-      <ConsumerStickyHeader />
+    <>
+      <Abertura />
+      <Cabecalho />
       <main>
-        <ConsumerHero />
-        <ConsumerMarquee />
-        <ConsumerScrollText />
-        <ConsumerComoFunciona />
-        <ConsumerCategorias />
-        <ConsumerApp />
-        <ConsumerDepoimentos />
-        <ConsumerCta />
+        <Marquise />
+        <Suspense>
+          <Passarela />
+        </Suspense>
+        <Folha>
+          <Suspense>
+            <Diretorio />
+          </Suspense>
+          <Suspense>
+            <Vitrines />
+          </Suspense>
+          <Suspense>
+            <Explorar />
+          </Suspense>
+          <Suspense>
+            <PedidoAoVivo />
+          </Suspense>
+          <Suspense>
+            <LuzDoDia />
+          </Suspense>
+          <Suspense>
+            <ParaTodos />
+          </Suspense>
+          <Suspense>
+            <Perguntas />
+          </Suspense>
+        </Folha>
+        <Suspense>
+          <Chamada />
+        </Suspense>
       </main>
-      <ConsumerFooter />
-    </div>
+      <Suspense>
+        <Rodape />
+      </Suspense>
+    </>
   )
 }

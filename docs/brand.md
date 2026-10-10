@@ -53,9 +53,15 @@ Guia de identidade visual e tokens de design. Todos os valores aqui definidos s�
 
 | App | Tema base | Cores predominantes |
 |-----|-----------|-------------------|
-| `lp-consumidor` | Dark mode | `dark`, `dark-2`, `lime`, branco |
+| `lp-consumidor` | Marquise (escuro) + folha (claro) | tokens do app do consumidor — ver abaixo |
 | `lp-parceiros` | Light mode | `surface`, `ink`, `lime`, `accent` |
 | `lp-entregadores` | Dark mode / Misto | `dark`, `lime`, gradientes |
+
+### `lp-consumidor` espelha o app do consumidor
+
+A landing do consumidor (mallevo.com.br) é a fachada do mesmo shopping que o app mostra, então usa os tokens de `Mall-online/apps/mobile-consumer/lib/consumer-design.ts`, declarados no `@theme` do `globals.css` dela (Tailwind v4, sem preset): `marquee #18181B` (fachada noturna), `glow #C1F148` (o neon, só atmosfera), `accent #D8FF3E` (CTA e linha acesa), `canvas #F1F1F3` (folha de zinco fumê), `ink #111216`, `ink-muted #5E6168`, `line #E4E4E7` e os status do pedido. Os tokens deste documento continuam valendo para `lp-parceiros` e `lp-entregadores` até elas migrarem.
+
+Regras herdadas do app: lima não é tinta sobre fundo claro (lá vira marca-texto, `.marca-texto`); a linha acesa do statement é Plus Jakarta Sans 600 itálico; corpo das telas do app em fonte de sistema (Inter nas réplicas); nada de dado inventado (nota, contagem de lojas, depoimento).
 
 ---
 
