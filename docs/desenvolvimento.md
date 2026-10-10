@@ -207,12 +207,10 @@ NEXT_PUBLIC_SITE_URL=https://mallevo.com.br
 # apps/lp-parceiros/.env.local
 NEXT_PUBLIC_APP_URL=https://app.mallevo.com.br
 NEXT_PUBLIC_SITE_URL=https://parceiros.mallevo.com.br
-NEXT_PUBLIC_CADASTRO_URL=https://app.mallevo.com.br/cadastro
 
 # apps/lp-entregadores/.env.local
 NEXT_PUBLIC_APP_URL=https://app.mallevo.com.br
 NEXT_PUBLIC_SITE_URL=https://entregadores.mallevo.com.br
-NEXT_PUBLIC_CADASTRO_URL=https://app.mallevo.com.br/entregador/cadastro
 ```
 
 Copie os exemplos para iniciar:

@@ -127,7 +127,6 @@ NEXT_PUBLIC_ENTREGADORES_URL=https://entregadores.mallevo.com.br
 ```env
 NEXT_PUBLIC_SITE_URL=https://parceiros.mallevo.com.br
 NEXT_PUBLIC_APP_URL=https://app.mallevo.com.br
-NEXT_PUBLIC_CADASTRO_URL=https://app.mallevo.com.br/cadastro
 NEXT_PUBLIC_CONSUMIDOR_URL=https://mallevo.com.br
 NEXT_PUBLIC_ENTREGADORES_URL=https://entregadores.mallevo.com.br
 ```
@@ -137,7 +136,6 @@ NEXT_PUBLIC_ENTREGADORES_URL=https://entregadores.mallevo.com.br
 ```env
 NEXT_PUBLIC_SITE_URL=https://entregadores.mallevo.com.br
 NEXT_PUBLIC_APP_URL=https://app.mallevo.com.br
-NEXT_PUBLIC_CADASTRO_URL=https://app.mallevo.com.br/entregador/cadastro
 NEXT_PUBLIC_CONSUMIDOR_URL=https://mallevo.com.br
 NEXT_PUBLIC_PARCEIROS_URL=https://parceiros.mallevo.com.br
 ```
