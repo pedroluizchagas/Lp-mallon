@@ -1,134 +1,544 @@
 @import "tailwindcss";
-@config "../../tailwind.config.ts";
+@source "../../../../packages/ui/src";
+
+/*
+ * Tokens da lp-parceiros = tokens do app do lojista
+ * (Mall-online/apps/mobile-partner/lib/partner-design.ts, espelho fiel do
+ * consumidor). A landing é o balcão visto de dentro: marquise escura com o
+ * neon lima vazando, folha clara de zinco fumê por cima. Mudou no app,
+ * muda aqui.
+ */
+@theme {
+  --font-sans: var(--ff-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--ff-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* O corpo do app usa a fonte do sistema; nas telas recriadas a Inter faz
+     o papel da SF — uma família só, o mesmo desenho em qualquer sistema. */
+  --font-sistema: var(--ff-inter), system-ui, sans-serif;
+  /* Vozes das vitrines (peles dos arquétipos) — só no provador. */
+  --font-archivo: var(--ff-archivo), ui-sans-serif, sans-serif;
+  --font-anton: var(--ff-anton), Impact, sans-serif;
+  --font-cormorant: var(--ff-cormorant), Georgia, serif;
+  --font-manrope: var(--ff-manrope), ui-sans-serif, sans-serif;
+  --font-nunito: var(--ff-nunito), ui-sans-serif, sans-serif;
+  --font-inter: var(--ff-inter), ui-sans-serif, sans-serif;
+
+  /* Fachada (escuro) */
+  --color-marquee: #18181b;
+  --color-marquee-card: #232326;
+  --color-ink: #111216;
+  --color-surface-dark: #2f3034;
+  --color-surface-dark-soft: #3a3b40;
+  --color-glow: #c1f148;
+
+  /* Folha (claro) */
+  --color-canvas: #f1f1f3;
+  --color-canvas-alt: #e7e7ea;
+  --color-surface: #ffffff;
+  --color-surface-muted: #ececef;
+  --color-line: #e4e4e7;
+  --color-line-dark: #4a4b50;
+  --color-ink-muted: #5e6168;
+  --color-ink-soft: #8b8e94;
+
+  /* Ação */
+  --color-accent: #d8ff3e;
+  --color-accent-strong: #c8f22e;
+
+  /* Status (os mesmos do pedido no app) */
+  --color-success: #8ed14f;
+  --color-warning: #f2b84b;
+  --color-danger: #ff6d5e;
+  --color-info: #5bb7ff;
+
+  /* Painel web do lojista (Mall-online/apps/web/app/globals.css): sidebar
+     zinco, conteúdo branco, o lima da marca como "brick". Só nas réplicas
+     do painel. */
+  --color-painel-sidebar: #18181b;
+  --color-painel-sidebar-2: #1f1f1d;
+  --color-painel-sidebar-ink: #f5f5f0;
+  --color-painel-bg: #ffffff;
+  --color-painel-bg-2: #f6f6f3;
+  --color-painel-bg-3: #ededea;
+  --color-painel-ink: #0f0f0d;
+  --color-painel-ink-2: #4a4a46;
+  --color-painel-ink-3: #8a8a84;
+  --color-painel-line: #ececea;
+  --color-painel-line-2: #dcdcd8;
+  --color-painel-brick: #c1f148;
+  --color-painel-brick-lt: #e9f9b8;
+  --color-painel-ok: #4fb025;
+  --color-painel-ok-lt: #e9f5ee;
+  --color-painel-warn: #e0a61a;
+  --color-painel-warn-lt: #fbf3e0;
+  --color-painel-sky: #5b8ac7;
+  --color-painel-sky-lt: #eaf2f9;
+  --color-painel-leaf: #6fcf3c;
+  --color-painel-mustard: #f2c94c;
+
+  --radius-app-sm: 14px;
+  --radius-app-md: 20px;
+  --radius-app-lg: 28px;
+  --radius-app-xl: 34px;
+
+  --ease-entrada: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-saida: cubic-bezier(0.3, 0, 1, 1);
+  --ease-suave: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-cortina: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --animate-pulso: pulso 1.3s var(--ease-suave) infinite;
+  --animate-respira: respira 7s var(--ease-suave) infinite alternate;
+  --animate-trilho: trilho 48s linear infinite;
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────── */
 
 :root {
-  --dark:        #0B0F0D;
-  --dark-2:      #111714;
-  --lime:        #c1f148;
-  --lime-dark:   #9dc93a;
-  --lime-ink:    #1a2a00;
-  --accent:      #2d5a27;
-  --surface:     #f8f9f6;
-  --surface-alt: #f0f2ec;
-  --ink:         #0d1208;
-  --ink-2:       #3d4a35;
-  --ink-3:       #6b7c60;
+  /* Atraso da entrada do hero: o tempo da porta subir. Zero sem ela. */
+  --abertura: 1.25s;
+  color-scheme: light;
+}
+
+:root[data-abertura='vista'] {
+  --abertura: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --abertura: 0s;
+  }
 }
 
 html {
-  scroll-behavior: smooth;
+  background: var(--color-marquee);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: var(--surface);
-  color: var(--ink);
-  font-family: var(--font-inter), sans-serif;
+  position: relative;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  /* O espaço da Jakarta é estreito (~0,18em); +0,07em o leva ao padrão (~0,25em). */
+  word-spacing: 0.07em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-jakarta), sans-serif;
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 75%, transparent);
+  color: var(--color-ink);
 }
 
-/* ─── Dark theme scrollbar (consumer page) ─── */
-.dark-scroll ::-webkit-scrollbar,
-:root:has(.dark-page) ::-webkit-scrollbar {
-  width: 4px;
-}
-.dark-scroll ::-webkit-scrollbar-track,
-:root:has(.dark-page) ::-webkit-scrollbar-track {
-  background: #080C09;
-}
-.dark-scroll ::-webkit-scrollbar-thumb,
-:root:has(.dark-page) ::-webkit-scrollbar-thumb {
-  background: #1f2b1f;
-  border-radius: 2px;
-}
-.dark-scroll ::-webkit-scrollbar-thumb:hover,
-:root:has(.dark-page) ::-webkit-scrollbar-thumb:hover {
-  background: var(--lime);
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
-/* Global scrollbar */
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: var(--surface);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--surface-alt);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--ink-3);
+[data-tema='claro'] :focus-visible {
+  outline-color: var(--color-ink);
 }
 
-/* ─── Custom cursor — oculta cursor nativo nas páginas dark ─── */
-.hide-cursor,
-.hide-cursor * {
-  cursor: none !important;
+/* Lenis (rolagem suave) — CSS recomendado pela biblioteca. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
-/* ─── Section separators ─── */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--surface-alt), transparent);
+/* ─── Peças da marca ────────────────────────────────────────────────── */
+
+@utility micro {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
-/* ─── Noise texture overlay ─── */
-.noise-overlay {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+/* O neon da marquise: lima-profundo em dois blobs difusos sobre o zinco —
+   o mesmo GlowNeon do app (≈22% no topo direito, ≈12% no pé esquerdo). */
+@utility glow-marquise {
+  background-image:
+    radial-gradient(ellipse 72% 62% at 88% -8%, rgb(193 241 72 / 0.22), rgb(193 241 72 / 0.08) 45%, transparent 75%),
+    radial-gradient(ellipse 60% 55% at -2% 112%, rgb(193 241 72 / 0.12), transparent 70%);
 }
 
-/* ─── Dot pattern ─── */
-.dot-pattern {
-  background-image: radial-gradient(circle, rgba(13, 18, 8, 0.09) 1px, transparent 1px);
-  background-size: 24px 24px;
+/* Grão de filme: tira o "chapado" das superfícies grandes. */
+@utility grao {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 }
 
-/* ─── Gradient text ─── */
-.text-gradient {
-  background: linear-gradient(135deg, #0d1208, #3d4a35);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Folha de vidro fosco — o canvas zinco com as nuvens do iOS e o neon da
+   marquise atravessando no canto (VidroFosco do app). */
+@utility vidro-fosco {
+  background-color: var(--color-canvas);
+  background-image:
+    radial-gradient(ellipse 70% 38% at 12% 0%, rgb(139 142 148 / 0.1), transparent 70%),
+    radial-gradient(ellipse 52% 30% at 78% 6%, rgb(91 183 255 / 0.06), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 18%, rgb(255 255 255 / 0.6), transparent 70%),
+    radial-gradient(ellipse 40% 26% at 100% 0%, rgb(193 241 72 / 0.1), transparent 70%);
+  background-repeat: no-repeat;
+  background-size: 100% 1400px;
 }
 
-/* ─── Lime text gradient ─── */
-.text-gradient-lime {
-  background: linear-gradient(135deg, #c1f148, #9dc93a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* A linha acesa em fundo claro: lima não é tinta sobre branco, é marca-texto. */
+@utility marca-texto {
+  background-image: linear-gradient(transparent 58%, var(--color-accent) 58%, var(--color-accent) 92%, transparent 92%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-inline: 0.06em;
+  margin-inline: -0.06em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
-/* ─── Smooth transitions ─── */
-a,
-button {
-  transition: all 0.2s ease;
+/* Sublinhado que corre da esquerda para a direita no hover. */
+@utility sublinha {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.45s var(--ease-entrada);
+  &:hover,
+  &:focus-visible {
+    background-position: 0% 100%;
+    background-size: 100% 1px;
+  }
 }
 
-/* ─── Table styles ─── */
-.comparison-table {
-  border-collapse: collapse;
+/* A chapa da porta de enrolar: ripas de aço com fio de luz e sombra. */
+@utility chapa {
+  background-color: #141518;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.045) 0px,
+    rgb(255 255 255 / 0.045) 1px,
+    transparent 1px,
+    transparent 22px,
+    rgb(0 0 0 / 0.55) 22px,
+    rgb(0 0 0 / 0.55) 24px,
+    transparent 24px,
+    transparent 26px
+  );
 }
 
-/* ─── Clip-path text reveal utility ─── */
-.clip-reveal {
-  clip-path: inset(0 0 100% 0);
+/* Régua do simulador (Quanto custa): a trilha acende até o valor (--p). */
+.regua {
+  appearance: none;
+  width: 100%;
+  height: 28px;
+  background: transparent;
+  cursor: pointer;
 }
-.clip-reveal.revealed {
-  clip-path: inset(0 0 0% 0);
-  transition: clip-path 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+.regua::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--color-accent) var(--p), rgb(255 255 255 / 0.14) var(--p));
+}
+.regua::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--color-accent) var(--p), rgb(255 255 255 / 0.14) var(--p));
+}
+.regua::-webkit-slider-thumb {
+  appearance: none;
+  margin-top: -9px;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #fff;
+  border: 3px solid var(--color-accent);
+  box-shadow: 0 6px 16px rgb(0 0 0 / 0.35);
+}
+.regua::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #fff;
+  border: 3px solid var(--color-accent);
+  box-shadow: 0 6px 16px rgb(0 0 0 / 0.35);
+}
+.regua:focus-visible {
+  outline: none;
+}
+.regua:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 5px rgb(216 255 62 / 0.45);
+}
+.regua:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 5px rgb(216 255 62 / 0.45);
 }
 
-/* ─── Selection color on dark pages ─── */
-.dark-page ::selection {
-  background: rgba(193, 241, 72, 0.25);
-  color: #f8f9f6;
+/* ─── Movimento em CSS (roda antes da hidratação) ───────────────────── */
+
+@keyframes pulso {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.82);
+  }
+}
+
+@keyframes respira {
+  from {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1.03);
+  }
+  to {
+    transform: scale(1.15) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+@keyframes trilho {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* O título do hero surge do desfoque. Começa em 0,01 (não 0): o navegador
+   já o conta como pintado no primeiro quadro — ele é o LCP, não o logo. */
+@keyframes surge-titulo {
+  from {
+    opacity: 0.01;
+    transform: translateY(0.16em);
+    filter: blur(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Bloco que surge desfocado (hero). Termina em `none`: filtro residual
+   prenderia o backdrop-filter dos vidros lá dentro. */
+@keyframes surge {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes desce {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(200%);
+  }
+}
+
+@keyframes aparece {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* O sino do pedido novo: balança e assenta. */
+@keyframes toca {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  15% {
+    transform: rotate(16deg);
+  }
+  30% {
+    transform: rotate(-14deg);
+  }
+  45% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-6deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+/* O dedo do lojista numa opção da tela (toca, aperta, fica marcada). */
+@keyframes toque {
+  0%,
+  30% {
+    transform: none;
+    box-shadow: 0 0 0 0 rgb(216 255 62 / 0);
+  }
+  42% {
+    transform: scale(0.97);
+    box-shadow: 0 0 0 2px rgb(216 255 62 / 0.7);
+  }
+  56%,
+  100% {
+    transform: none;
+    box-shadow: 0 0 0 2px rgb(216 255 62 / 0.7);
+  }
+}
+
+/* Onda que sai do sino. */
+@keyframes onda {
+  from {
+    opacity: 0.55;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2.1);
+  }
+}
+
+.entra-titulo {
+  display: block;
+  animation: surge-titulo 1.25s var(--ease-entrada) both;
+  animation-delay: calc(var(--abertura) + var(--d, 0s));
+}
+
+.entra-bloco {
+  animation: surge 1s var(--ease-entrada) both;
+  animation-delay: calc(var(--abertura) + var(--d, 0s));
+}
+
+.entra-fade {
+  animation: aparece 1.2s var(--ease-suave) both;
+  animation-delay: calc(var(--abertura) + var(--d, 0s));
+}
+
+/*
+ * Abertura: a porta de enrolar da loja. A luz de dentro acende na fresta
+ * do chão (pisca como neon pegando), e a porta sobe inteira — o balcão
+ * aceso aparece por baixo.
+ */
+.porta {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  pointer-events: none;
+  animation: some 0s linear 2s forwards;
+}
+
+.porta__chapa {
+  position: absolute;
+  inset: 0;
+  animation: enrola 1.05s var(--ease-cortina) 0.72s forwards;
+}
+
+/* O puxador no pé da porta. */
+.porta__puxador {
+  position: absolute;
+  left: 50%;
+  bottom: 44px;
+  width: 96px;
+  height: 10px;
+  translate: -50% 0;
+  border-radius: 6px;
+  background: linear-gradient(to bottom, #2a2b30, #1b1c20);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.08),
+    0 2px 0 rgb(0 0 0 / 0.5);
+}
+
+/* A luz de dentro, vazando pela fresta do chão. Acompanha o pé da porta. */
+.porta__fresta {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-accent);
+  box-shadow:
+    0 0 18px 2px rgb(193 241 72 / 0.6),
+    0 36px 90px 18px rgb(193 241 72 / 0.16);
+  opacity: 0;
+  animation: fresta 0.7s var(--ease-suave) 0.05s forwards;
+}
+
+@keyframes enrola {
+  to {
+    transform: translateY(-101%);
+  }
+}
+
+@keyframes fresta {
+  0% {
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+  }
+  28% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes some {
+  to {
+    visibility: hidden;
+  }
+}
+
+:root[data-abertura='vista'] .porta {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .porta {
+    display: none;
+  }
+  .entra-titulo,
+  .entra-bloco,
+  .entra-fade {
+    animation: none;
+  }
+  .animate-pulso,
+  .animate-respira,
+  .animate-trilho {
+    animation: none;
+  }
 }

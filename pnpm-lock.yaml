@@ -130,9 +130,6 @@ importers:
       framer-motion:
         specifier: ^11.0.0
         version: 11.18.2(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
-      lucide-react:
-        specifier: ^0.438.0
-        version: 0.438.0(react@19.2.5)
       next:
         specifier: 15.1.11
         version: 15.1.11(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -143,9 +140,6 @@ importers:
         specifier: ^19.0.0
         version: 19.2.5(react@19.2.5)
     devDependencies:
-      '@mallevo/config-tailwind':
-        specifier: workspace:*
-        version: link:../../packages/config-tailwind
       '@mallevo/config-typescript':
         specifier: workspace:*
         version: link:../../packages/config-typescript

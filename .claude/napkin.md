@@ -20,6 +20,9 @@
 4. **[2026-10-10] Lighthouse local: `npx -y lighthouse@12.6.1` com `CHROME_PATH=~/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome`**
    Do instead: rodar contra `next start` (nunca dev), 2–3 vezes — o mobile local oscila ±15 pontos. Para LCP/TBT reais, medir com Playwright + CDP (`Emulation.setCPUThrottlingRate 4` + `Network.emulateNetworkConditions`) e PerformanceObserver de `largest-contentful-paint`/`longtask`; o Lantern infla o LCP de texto com webfont.
 
+5. **[2026-10-10] lp-parceiros lê os planos do Supabase no build (ISR 1h): sem as variáveis, a seção de preços sai sem número**
+   Do instead: para testar com preços, exportar `NEXT_PUBLIC_SUPABASE_URL`/`NEXT_PUBLIC_SUPABASE_ANON_KEY` a partir de `Mall-online/apps/mobile-partner/.env.local` (tirar as aspas: `cut -d= -f2- | tr -d '"'`) no mesmo shell do `next build` e do `next start`; conferir com `grep 'R\$ 147,90' .next/server/app/index.html`. `ENOTFOUND fonts.googleapis.com` no build é rede — repetir, não é bug.
+
 ## Monorepo & Tooling
 
 1. **[2026-05-05] Turbo is not installed locally — don't use `pnpm build` at root**
@@ -28,8 +31,8 @@
 2. **[2026-10-10] `pnpm add/remove` reordena as chaves do package.json**
    Do instead: depois do comando, devolver a ordem original das chaves (o lockfile não depende dela) e conferir com `pnpm install --frozen-lockfile --offline` ("Already up to date" = lockfile consistente para a CI).
 
-3. **[2026-10-10] lp-consumidor usa Tailwind v4 CSS-first (`@theme` no globals.css), sem preset nem tailwind.config**
-   Do instead: token novo vai no `@theme` da própria app; o preset `@mallevo/config-tailwind` continua só nas outras duas. `@source "../../../../packages/ui/src"` garante as classes do pacote compartilhado. Nome de variável do next/font não pode colidir com `--font-*` do tema (`--ff-*` para as fontes, `--font-*` para o tema).
+3. **[2026-10-10] lp-consumidor e lp-parceiros usam Tailwind v4 CSS-first (`@theme` no globals.css), sem preset nem tailwind.config**
+   Do instead: token novo vai no `@theme` da própria app; o preset `@mallevo/config-tailwind` continua só na lp-entregadores. `@source "../../../../packages/ui/src"` garante as classes do pacote compartilhado. Nome de variável do next/font não pode colidir com `--font-*` do tema (`--ff-*` para as fontes, `--font-*` para o tema).
 
 4. **[2026-05-05] Workspace package symlinks only appear after `pnpm install`**
    Do instead: after any package.json change or fresh clone, run `echo "y" | pnpm install` at repo root before attempting builds.
@@ -40,15 +43,18 @@
 ## Domain Behavior Guardrails
 
 1. **[2026-10-10] Armadilhas de motion (todas aconteceram na lp-consumidor)**
-   Do instead: (a) whileInView/IntersectionObserver em elemento escondido por `overflow:hidden`+translate nunca dispara — observe o pai; (b) animação CSS `fill-mode: both` terminando em transform/filter anula o `style` do framer no mesmo nó — wrappers separados; (c) `filter: blur(0)` residual isola `backdrop-filter` dos filhos — terminar em `none`; (d) `useReducedMotion` do framer muda a árvore no 1º render do cliente → erro de hidratação — usar `useSafeReducedMotion` do `@mallevo/ui`; (e) `line-clamp` zera o min-height de item flex e o texto some quando falta altura; (f) `cqw` no próprio contêiner resolve contra a viewport — o recorte mora num filho.
+   Do instead: (a) whileInView/IntersectionObserver em elemento escondido por `overflow:hidden`+translate nunca dispara — observe o pai; (b) animação CSS `fill-mode: both` terminando em transform/filter anula o `style` do framer no mesmo nó — wrappers separados; (c) `filter: blur(0)` residual isola `backdrop-filter` dos filhos — terminar em `none`; (d) `useReducedMotion` do framer muda a árvore no 1º render do cliente → erro de hidratação — usar `useSafeReducedMotion` do `@mallevo/ui`; (e) `line-clamp` zera o min-height de item flex e o texto some quando falta altura; (f) `cqw` no próprio contêiner resolve contra a viewport — o recorte mora num filho; (g) cartão de altura fixa que não cabe em tela baixa (vitrine do manifesto): `[container-type:size]` no cartão + `[@container_(max-height:580px)]:hidden` no bloco dispensável, em vez de deixar o `overflow` cortar.
 
 2. **[2026-10-10] Tipografia e performance**
    Do instead: Plus Jakarta Sans tem espaço estreito (~0,18em) → `word-spacing: 0.07em` no body; réplicas do app usam `font-sistema` = Inter primeiro (pilha `-apple-system…Roboto` custava ~35% a mais de layout no Linux, onde roda o PageSpeed); título do hero entra de opacidade 0,01 (não 0) para ser o LCP; logo PNG com `unoptimized` (o otimizador somava a conversão AVIF ao LCP); seções abaixo da dobra em `<Suspense>` para a hidratação virar tarefas curtas.
 
 3. **[2026-10-10] Telas do app na landing = réplicas em código, fiéis ao Mall-online**
-   Do instead: medidas em pontos do app (390×844) dentro de `components/app/Celular` (escala por `--k`); ícones = `components/marca/ConsumerIcon` (porte 1:1 do app — nada de Lucide nem emoji); conteúdo de `src/app/dados/shopping.ts` (lojas, posts e textos do mock do consumer, peles de `store-theme/presets.ts`). Sem nota, contagem de lojas ou depoimento inventado.
+   Do instead: medidas em pontos do app (390×844) dentro de `components/app/Celular` (escala por `--k`); painel web em `components/painel/Navegador` (1240×780, mesma escala). Ícones = porte 1:1 (`ConsumerIcon` na lp-consumidor, `PartnerIcon` na lp-parceiros — nada de Lucide nem emoji). Conteúdo do mock do app: `dados/shopping.ts` (consumidor) e `dados/balcao.ts`/`vitrines.ts`/`painel.ts` (lojista; status e rótulos de `mobile-partner/lib/status-pedido.ts` e `@mallevo/lib`). Sem nota, contagem de lojas ou depoimento inventado.
 
-4. **[2026-05-05] Each lp-* app runs on a separate port: lp-consumidor=3000, lp-parceiros=3001, lp-entregadores=3002**
+4. **[2026-10-10] Landing de lojista só promete o que o código faz — conferir antes de escrever**
+   Do instead: valem R$ 1,00 por pedido, 15 dias de teste sem cartão, `{slug}.mallevo.com.br`, 21 estilos/18 vitrines, 6 modelos de painel, Pix e cartão até 12x. Não prometer: push do lojista, curtidas/comentários, avaliações/mensagens, entregador próprio, D+7/D+2, retirada, multiloja. Cadastro = `app.mallevo.com.br/onboarding` (`/cadastro` dá 404); dados da empresa = `EMPRESA` de `@mallevo/brand`.
+
+5. **[2026-05-05] Each lp-* app runs on a separate port: lp-consumidor=3000, lp-parceiros=3001, lp-entregadores=3002**
    Do instead: check `package.json` scripts for the specific `--port` flag before assuming a port.
 
 ## User Directives
